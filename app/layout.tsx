@@ -26,9 +26,9 @@ export default function RootLayout({
             <LinktaLogoWithText />
           </header>
           <main className="flex flex-col my-3">{children}</main>
-          <footer className="sm:flex flex-col">
+          {/* <footer className="sm:flex flex-col">
             <Footer />
-          </footer>
+          </footer> */}
         </MantineProvider>
       </body>
     </html>
