@@ -131,7 +131,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
           >Join Waiting List</Button>
           <footer className="pt-2">
 
-          <PrivacyAgreement />
+          {/* <PrivacyAgreement /> */}
           </footer>
         </section>
       </form>
