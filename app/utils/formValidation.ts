@@ -2,7 +2,7 @@
  * Validates if the string meets the minimum length requirement.
  * @param {number} minLength - The minimum number of characters required.
  * @param {string} field - The name of the field to validate.
- * @returns {string|null} An error message if validation fails, otherwise null.
+ * @returns {string|undefined|null} - Returns `null` if the value satisfies the minimum length requirement,`undefined` if the input is an empty string (useful for optional fields),or an error message if validation fails.
  */
 export const validateMinLength =
   (minLength: number, field: string) => (value: string) => {
@@ -12,7 +12,7 @@ export const validateMinLength =
       return `${field} must have at least ${minLength} letter${pluralSuffix}. Please try again.`;
     }
     return null;
-  };
+};
 
 /**
  * Validates the format of an email address.
