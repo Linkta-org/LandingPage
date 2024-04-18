@@ -79,9 +79,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     checkRedirectResult();
   }, [setFlowState]);
   //TODO: update database setup to give default timeStamp to createdAt and 'Not provided' to source, & [] for interests and features
-  async function handleSubmit( values: FormValues ) {
-    const { email, name, interests, source, features } = values;
-
+  async function handleSubmit( { email, name, interests, source, features }: FormValues ) {
     setFlowState('processing');
 
     // creates user document reference using email as document id
