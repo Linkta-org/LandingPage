@@ -17,7 +17,7 @@ import { generateInitialValues, generateValidationRules } from '@/app/utils/form
 import textInputConfig from '../../config/signupForm';
 import { FormValues } from '@/app/types/signupForm';
 import { parseAndCleanInput } from '@/app/utils/formInputProcessing';
-import { checkDocumentExists, createUserDocument } from '@/app/services/firestore';
+import { processUserData } from '@/app/services/user';
 
 interface PrelaunchSignUpFormProps {
   setFlowState: Dispatch<SetStateAction<FlowState>>;
@@ -56,15 +56,10 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
       ...(features && { features: parseAndCleanInput(features) }),
     };
 
-    if (!await checkDocumentExists(userDocRef)) {
-      try {
-        await createUserDocument(userDocRef, userData);
-      } catch (error) {
-        console.error('An error occurred during account creation.');
-      }
-    }
+    await processUserData(userData, userDocRef,
+      () => setFlowState('confirmed'),
+    );
 
-    setFlowState('confirmed');
     form.reset();
   };
 
