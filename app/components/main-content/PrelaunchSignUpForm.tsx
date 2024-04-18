@@ -90,7 +90,8 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
       }
     }
 
-    setFlowState('confirmed')
+    setFlowState('confirmed');
+    form.reset();
   }
 
   return (
