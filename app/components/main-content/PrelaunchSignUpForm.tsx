@@ -11,29 +11,17 @@ import {
   signUpWithGoogle,
   createUserDoc,
 } from '@/app/config/firebase';
-import { doc, getDoc, setDoc, serverTimestamp, DocumentReference } from 'firebase/firestore';
+import { doc } from 'firebase/firestore';
 import { db } from '@/app/config/firebase';
 import { generateInitialValues, generateValidationRules } from '@/app/utils/formInitialization';
 import textInputConfig from '../../config/signupForm';
 import { FormValues } from '@/app/types/signupForm';
 import { parseAndCleanInput } from '@/app/utils/formInputProcessing';
+import { checkDocumentExists, createUserDocument } from '@/app/services/firestore';
 
 interface PrelaunchSignUpFormProps {
   setFlowState: Dispatch<SetStateAction<FlowState>>;
 }
-
-  const checkDocumentExists = async(docRef: DocumentReference): Promise<boolean> => {
-    const docSnapshot = await getDoc(docRef);
-    return docSnapshot.exists();
-  };
-
-  const createUserDocument = async(docRef: DocumentReference, userData: any): Promise<void> => {
-    try {
-      await setDoc(docRef, userData);
-    } catch (error) {
-      console.error('Failed to create user document.');
-    }
-  }
 
 const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState }) => {
 
