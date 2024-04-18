@@ -10,17 +10,20 @@ import {
   signUpWithGitHub,
   signUpWithGoogle,
   createUserDoc,
-} from '@/app/config/firebase'; 
+} from '@/app/config/firebase';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '@/app/config/firebase';
 
 interface PrelaunchSignUpFormProps {
   setFlowState: Dispatch<SetStateAction<FlowState>>;
 }
-
+// TODO: to remove below interface once merged with PR #33
 interface FormValues {
   name: string;
   email: string;
+  interests?: string;
+  source?: string;
+  features?: string;
 }
 
 const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState }) => {
@@ -29,6 +32,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     initialValues: {
       name: '',
       email: '',
+
     },
 
     validate: {
@@ -39,7 +43,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
   useEffect(() => {
     async function checkRedirectResult() {
       const res = await getRedirectResult(auth);  // Needed to access user data after redirect during OAuth sign in
-      
+
       if (res) {
         setFlowState('processing');
         await createUserDoc(res.user);
@@ -49,7 +53,9 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     checkRedirectResult();
   }, [setFlowState]);
 
-  async function handleSubmit({ email, name }: FormValues) {
+  async function handleSubmit( values: FormValues ) {
+    const { email, name, interests, source, features } = values;
+
     setFlowState('processing')
 
     // creates user document reference using email as document id
@@ -69,7 +75,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
         console.error('An error occurred during account creation.');
       }
     }
-    
+
     setFlowState('confirmed')
   }
 
