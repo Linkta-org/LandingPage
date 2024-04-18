@@ -47,6 +47,11 @@ interface FormValues {
     return array.length ? array.filter(item => item.length > 0) :[];
   };
 
+  const parseAndCleanInput = (input: string | null | undefined): string[] => {
+      const parsedInput = parseCommaSeparatedInput(input);
+      return cleanArray(parsedInput);
+  };
+
 const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState }) => {
 
   const form = useForm({
@@ -85,9 +90,9 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     const userData = {
       name,
       email,
-      ...(interests && { interests: cleanArray(parseCommaSeparatedInput(interests)) }),
+      ...(interests && { interests: parseAndCleanInput(interests) }),
       ...(source && { source }),
-      ...(features && { features: cleanArray(parseCommaSeparatedInput(features)) }),
+      ...(features && { features: parseAndCleanInput(features) }),
     };
 
     const isDocumentExist = await checkDocumentExists(userDocRef);
