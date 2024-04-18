@@ -8,19 +8,20 @@ interface UserData {
   source?: string;
   features?: string[];
 }
+
 export const processUserData = async (
   userData: UserData,
   userDocRef: DocumentReference,
-  onSuccess: () => void
+  onSuccess: () => void,
+  onError: (error: any) => void = console.error
 ): Promise<void> => {
-  if (!(await checkDocumentExists(userDocRef))) {
-    try {
+  try {
+    const documentExists = await checkDocumentExists(userDocRef);
+    if (!documentExists) {
       await createUserDocument(userDocRef, userData);
-      onSuccess();
-    } catch (error) {
-      console.error('An error occurred:', error);
     }
-  } else {
     onSuccess();
+  } catch (error) {
+    onError('An error occurred during the user data process:');
   }
 };

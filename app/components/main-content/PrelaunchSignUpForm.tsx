@@ -17,7 +17,7 @@ import { generateInitialValues, generateValidationRules } from '@/app/utils/form
 import textInputConfig from '../../config/signupForm';
 import { FormValues } from '@/app/types/signupForm';
 import { parseAndCleanInput } from '@/app/utils/formInputProcessing';
-import { processUserData } from '@/app/services/user';
+import { processUserData } from '@/app/services/userData';
 
 interface PrelaunchSignUpFormProps {
   setFlowState: Dispatch<SetStateAction<FlowState>>;
