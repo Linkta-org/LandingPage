@@ -31,6 +31,14 @@ interface FormValues {
     return docSnapshot.exists();
   };
 
+  const createUserDocument = async(docRef: DocumentReference, userData: any): Promise<void> => {
+    try {
+      await setDoc(docRef, userData);
+    } catch (error) {
+      console.error('Failed to create user document.');
+    }
+  }
+
   const parseCommaSeparatedInput = (input: string | null | undefined): string[] => {
     if(!input) return [];
     return input.split(',').map(item => item.trim());
@@ -89,7 +97,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
 
     if (!isDocumentExist) {
       try {
-        await setDoc(userDocRef, userData)
+        await createUserDocument(userDocRef, userData);
       } catch (error) {
         console.error('An error occurred during account creation.');
       }
