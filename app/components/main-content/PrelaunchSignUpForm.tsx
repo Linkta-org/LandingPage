@@ -16,6 +16,7 @@ import { db } from '@/app/config/firebase';
 import { generateInitialValues, generateValidationRules } from '@/app/utils/formInitialization';
 import textInputConfig from '../../config/signupForm';
 import { FormValues } from '@/app/types/signupForm';
+import { parseAndCleanInput } from '@/app/utils/formInputProcessing';
 
 interface PrelaunchSignUpFormProps {
   setFlowState: Dispatch<SetStateAction<FlowState>>;
@@ -33,20 +34,6 @@ interface PrelaunchSignUpFormProps {
       console.error('Failed to create user document.');
     }
   }
-
-  const parseCommaSeparatedInput = (input: string | null | undefined): string[] => {
-    return input ? input.split(',').map(item => item.trim()) : [];
-  };
-
-  const cleanArray = (array: string[]): string[] => {
-    return array.length ? array.filter(item => item.length > 0) :[];
-  };
-
-  const parseAndCleanInput = (input: string | null | undefined): string[] => {
-      const parsedInput = parseCommaSeparatedInput(input);
-      return cleanArray(parsedInput);
-  };
-
 
 const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState }) => {
 
