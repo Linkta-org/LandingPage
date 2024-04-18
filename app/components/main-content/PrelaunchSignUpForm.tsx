@@ -63,6 +63,15 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     // checks if document exists in db
     const userSnapShot = await getDoc(userDocRef);
 
+    const parseCommaSeparatedInput = (input: string | null | undefined): string[] => {
+      if(!input) return [];
+      return input.split(',').map(item => item.trim());
+    };
+
+    const cleanArray = (array: string[]): string[] => {
+      return array.filter(item => item.length > 0);
+    }
+
     const userData = {
       name,
       email,
