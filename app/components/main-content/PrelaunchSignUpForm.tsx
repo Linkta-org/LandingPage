@@ -73,17 +73,8 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     <>
       <Box>
         <form onSubmit={form.onSubmit(handleSubmit)}>
-
           <h1>Shape Our Future with Your Vision</h1>
-
           <h2>Get exclusive early access to try our product</h2>
-
-          <section aria-label="Sign Up with Google or Github">
-            <h3>sign up with google or github</h3>
-            <Button onClick={signUpWithGoogle}>Continue with Google</Button><br/>
-            <Button onClick={signUpWithGitHub}>Continue with Github</Button>
-          </section>
-
           <section aria-label="Sign Up with Email">
             <h3>or sign up with email</h3>
             {textInputConfig.map((input, index) => (
