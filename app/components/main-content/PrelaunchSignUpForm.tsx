@@ -47,7 +47,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
   }, [setFlowState]);
 
   //TODO: update database setup to give default timeStamp to createdAt and 'Not provided' to source, & [] for interests and features
-  async function handleSubmit( { email, name, interests, source, features }: FormValues ) {
+  const handleSubmit = async( { email, name, interests, source, features }: FormValues ) => {
     setFlowState('processing');
     // creates user document reference using email as document id
     const userDocRef = doc(db, 'users', email);
@@ -60,9 +60,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
       ...(features && { features: parseAndCleanInput(features) }),
     };
 
-    const isDocumentExist = await checkDocumentExists(userDocRef);
-
-    if (!isDocumentExist) {
+    if (!await checkDocumentExists(userDocRef)) {
       try {
         await createUserDocument(userDocRef, userData);
       } catch (error) {
@@ -72,7 +70,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
 
     setFlowState('confirmed');
     form.reset();
-  }
+  };
 
   return (
     <>
