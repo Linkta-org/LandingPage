@@ -11,7 +11,7 @@ import {
   signUpWithGoogle,
   createUserDoc,
 } from '@/app/config/firebase';
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc, setDoc, serverTimestamp, DocumentReference } from 'firebase/firestore';
 import { db } from '@/app/config/firebase';
 
 interface PrelaunchSignUpFormProps {
@@ -56,12 +56,15 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
   async function handleSubmit( values: FormValues ) {
     const { email, name, interests, source, features } = values;
 
-    setFlowState('processing')
+    setFlowState('processing');
+
+    const checkDocumentExists = async(docRef: DocumentReference): Promise<boolean> => {
+      const docSnapshot = await getDoc(docRef);
+      return docSnapshot.exists();
+    };
 
     // creates user document reference using email as document id
     const userDocRef = doc(db, 'users', email);
-    // checks if document exists in db
-    const userSnapShot = await getDoc(userDocRef);
 
     const parseCommaSeparatedInput = (input: string | null | undefined): string[] => {
       if(!input) return [];
@@ -82,7 +85,9 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
 
     //TODO: update database setup to give default timeStamp to createdAt and 'Not provided' to source, & [] for interests and features
     // creates a new document if none exists already
-    if (!userSnapShot.exists()) {
+    const isDocumentExist = await checkDocumentExists(userDocRef);
+
+    if (!isDocumentExist) {
       try {
         await setDoc(userDocRef, userData)
       } catch (error) {
