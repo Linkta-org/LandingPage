@@ -71,7 +71,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
       ...(features && { features }),
     };
 
-    //TODO: update database setup to give default timeStamp to createdAt and 'Not provided' to intrests, source and features
+    //TODO: update database setup to give default timeStamp to createdAt and 'Not provided' to source, & [] for interests and features
     // creates a new document if none exists already
     if (!userSnapShot.exists()) {
       try {
