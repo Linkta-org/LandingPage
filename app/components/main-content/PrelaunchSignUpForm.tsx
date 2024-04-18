@@ -22,7 +22,6 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     validate: useMemo(() => generateValidationRules(textInputConfig), [])
   });
 
-  //TODO: update database setup to give default timeStamp to createdAt and 'Not provided' to source, & [] for interests and features
   const handleSubmit = async( { email, name, interests, source, features }: FormValues ) => {
     setFlowState('processing');
     // creates user document reference using email as document id
@@ -32,7 +31,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
       name,
       email,
       interests: parseAndCleanInput(interests),
-      source: source ?? "",
+      source: source ?? 'not provided',
       features: parseAndCleanInput(features),
       createdAt: serverTimestamp(),
     };
