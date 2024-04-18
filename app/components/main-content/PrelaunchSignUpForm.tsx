@@ -40,13 +40,12 @@ interface FormValues {
   }
 
   const parseCommaSeparatedInput = (input: string | null | undefined): string[] => {
-    if(!input) return [];
-    return input.split(',').map(item => item.trim());
+    return input ? input.split(',').map(item => item.trim()) : [];
   };
 
   const cleanArray = (array: string[]): string[] => {
-    return array.filter(item => item.length > 0);
-  }
+    return array.length ? array.filter(item => item.length > 0) :[];
+  };
 
 const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState }) => {
 
@@ -74,7 +73,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     }
     checkRedirectResult();
   }, [setFlowState]);
-
+  //TODO: update database setup to give default timeStamp to createdAt and 'Not provided' to source, & [] for interests and features
   async function handleSubmit( values: FormValues ) {
     const { email, name, interests, source, features } = values;
 
@@ -91,8 +90,6 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
       ...(features && { features: cleanArray(parseCommaSeparatedInput(features)) }),
     };
 
-    //TODO: update database setup to give default timeStamp to createdAt and 'Not provided' to source, & [] for interests and features
-    // creates a new document if none exists already
     const isDocumentExist = await checkDocumentExists(userDocRef);
 
     if (!isDocumentExist) {
