@@ -9,7 +9,7 @@ import { db } from '@/app/config/firebase';
 import { generateInitialValues, generateValidationRules } from '@/app/utils/formInitialization';
 import textInputConfig from '../../config/signupForm';
 import { FormValues } from '@/app/types/signupForm';
-import { parseAndCleanInput } from '@/app/utils/formInputProcessing';
+import { cleanInput, parseAndCleanInput } from '@/app/utils/formInputProcessing';
 import { checkDocumentExists, createUserDocument } from '@/app/services/firestore';
 
 interface PrelaunchSignUpFormProps {
@@ -28,10 +28,10 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     const userDocRef = doc(db, 'users', email);
 
     const userData = {
-      name,
-      email,
+      name: cleanInput(name),
+      email: cleanInput(email),
       interests: parseAndCleanInput(interests),
-      source: source ?? 'not provided',
+      source: source ? cleanInput(source) : 'not provided',
       features: parseAndCleanInput(features),
       createdAt: serverTimestamp(),
     };
