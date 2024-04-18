@@ -75,9 +75,9 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     const userData = {
       name,
       email,
-      ...(interests && { interests }),
+      ...(interests && { interests: cleanArray(parseCommaSeparatedInput(interests)) }),
       ...(source && { source }),
-      ...(features && { features }),
+      ...(features && { features: cleanArray(parseCommaSeparatedInput(features)) }),
     };
 
     //TODO: update database setup to give default timeStamp to createdAt and 'Not provided' to source, & [] for interests and features
