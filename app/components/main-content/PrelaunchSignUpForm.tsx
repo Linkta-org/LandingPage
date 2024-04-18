@@ -63,14 +63,19 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     // checks if document exists in db
     const userSnapShot = await getDoc(userDocRef);
 
+    const userData = {
+      name,
+      email,
+      ...(interests && { interests }),
+      ...(source && { source }),
+      ...(features && { features }),
+    };
+
+    //TODO: update database setup to give default timeStamp to createdAt and 'Not provided' to intrests, source and features
     // creates a new document if none exists already
     if (!userSnapShot.exists()) {
       try {
-        await setDoc(userDocRef, {
-          name,
-          email,
-          createdAt: serverTimestamp()
-        })
+        await setDoc(userDocRef, userData)
       } catch (error) {
         console.error('An error occurred during account creation.');
       }
