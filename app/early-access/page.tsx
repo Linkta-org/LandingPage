@@ -13,7 +13,6 @@ export default function PreLaunchSignupFlowContainer() {
   const [flowState, setFlowState] = useState<FlowState>('viewingForm');
   const router = useRouter()
 
-  // Redirects to homepage 3 seconds after confirmation. Prevents leaks by clearing timeout on component unmount or state change.
   useEffect(() => {
     if (flowState !== 'confirmed') return;
     const timeoutId = setTimeout(() => router.push('/'), 3000);
@@ -21,7 +20,6 @@ export default function PreLaunchSignupFlowContainer() {
   }, [flowState, router]);
 
   // TODO: replace loader placeholder with component
-  // TODO: pass handleFormSubmit={handleFormSubmit} to PrelaunchSignUpForm
   return (
     <main>
       {flowState === 'viewingForm' && <PrelaunchSignUpForm setFlowState={setFlowState} />}
