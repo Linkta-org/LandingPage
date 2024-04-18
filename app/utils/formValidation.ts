@@ -7,6 +7,7 @@
 export const validateMinLength =
   (minLength: number, field: string) => (value: string) => {
     if (value.trim().length < minLength) {
+      if (value.trim() === '') return undefined;
       const pluralSuffix = minLength > 1 ? 's' : '';
       return `${field} must have at least ${minLength} letter${pluralSuffix}. Please try again.`;
     }
