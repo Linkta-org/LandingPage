@@ -4,12 +4,12 @@ import { TextInput, Button, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { Dispatch, SetStateAction, useMemo } from 'react';
 import { FlowState } from '../../early-access/page'
-import { doc, serverTimestamp } from 'firebase/firestore';
+import { doc } from 'firebase/firestore';
 import { db } from '@/app/config/firebase';
 import { generateInitialValues, generateValidationRules } from '@/app/utils/formInitialization';
 import textInputConfig from '../../config/signupForm';
 import { FormValues } from '@/app/types/signupForm';
-import { cleanInput, parseAndCleanInput } from '@/app/utils/formInputProcessing';
+import { cleanUserData } from '@/app/utils/formInputProcessing';
 import { checkDocumentExists, createUserDocument } from '@/app/services/firestore';
 
 interface PrelaunchSignUpFormProps {
@@ -22,19 +22,12 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     validate: useMemo(() => generateValidationRules(textInputConfig), [])
   });
 
-  const handleSubmit = async( { email, name, interests, source, features }: FormValues ) => {
+  const handleSubmit = async( values: FormValues ) => {
     setFlowState('processing');
     // creates user document reference using email as document id
-    const userDocRef = doc(db, 'users', email);
+    const userDocRef = doc(db, 'users', values.email);
 
-    const userData = {
-      name: cleanInput(name),
-      email: cleanInput(email),
-      interests: parseAndCleanInput(interests),
-      source: source ? cleanInput(source) : 'not provided',
-      features: parseAndCleanInput(features),
-      createdAt: serverTimestamp(),
-    };
+    const userData = cleanUserData(values);
 
   try {
     const documentExists = await checkDocumentExists(userDocRef);
