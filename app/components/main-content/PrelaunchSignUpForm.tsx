@@ -26,6 +26,20 @@ interface FormValues {
   features?: string;
 }
 
+  const checkDocumentExists = async(docRef: DocumentReference): Promise<boolean> => {
+    const docSnapshot = await getDoc(docRef);
+    return docSnapshot.exists();
+  };
+
+  const parseCommaSeparatedInput = (input: string | null | undefined): string[] => {
+    if(!input) return [];
+    return input.split(',').map(item => item.trim());
+  };
+
+  const cleanArray = (array: string[]): string[] => {
+    return array.filter(item => item.length > 0);
+  }
+
 const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState }) => {
 
   const form = useForm({
@@ -58,22 +72,8 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
 
     setFlowState('processing');
 
-    const checkDocumentExists = async(docRef: DocumentReference): Promise<boolean> => {
-      const docSnapshot = await getDoc(docRef);
-      return docSnapshot.exists();
-    };
-
     // creates user document reference using email as document id
     const userDocRef = doc(db, 'users', email);
-
-    const parseCommaSeparatedInput = (input: string | null | undefined): string[] => {
-      if(!input) return [];
-      return input.split(',').map(item => item.trim());
-    };
-
-    const cleanArray = (array: string[]): string[] => {
-      return array.filter(item => item.length > 0);
-    }
 
     const userData = {
       name,
