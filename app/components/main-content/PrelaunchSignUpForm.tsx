@@ -51,10 +51,11 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
     const userData = {
       name,
       email,
-      ...(interests && { interests: parseAndCleanInput(interests) }),
-      ...(source && { source }),
-      ...(features && { features: parseAndCleanInput(features) }),
+      interests: parseAndCleanInput(interests),
+      source: source ?? "",
+      features: parseAndCleanInput(features),
     };
+
     // TODO: pass in onError argument when available
     await processUserData(userData, userDocRef,
       () => setFlowState('confirmed'),
