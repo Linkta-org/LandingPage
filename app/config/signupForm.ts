@@ -1,4 +1,4 @@
-import { validateEmail, validateMinLength } from '../utils/formValidation';
+import { validateEmail, validateMinLength, validateName } from '../utils/formValidation';
 import type { FormValues, ValidationFunction } from '../types/signupForm';
 
 interface TextInputConfig {
@@ -44,7 +44,7 @@ const textInputConfig: TextInputConfig[] = [
     'name',
     'First Name (required)',
     'Enter your first name',
-    validateMinLength(1, 'Name'),
+    validateName,
     true
   ),
   createConfigItem(

@@ -1,3 +1,5 @@
+import { ALLOWED_NAME_CHARS } from "./formInitialization";
+
 /**
  * Validates if the string meets the minimum length requirement.
  * @param {number} minLength - The minimum number of characters required.
@@ -35,4 +37,15 @@ export const validateEmailFormat = (value: string) => {
  */
 export const validateEmail = (value: string) => {
   return validateMinLength(3, 'Email')(value) || validateEmailFormat(value);
+};
+
+export const validateNameFormat = (value: string) => {
+  const allowedChars = new RegExp(`^[${ALLOWED_NAME_CHARS}]+$`);
+  return !allowedChars.test(value)
+    ? 'First name can only contain letters(A-Za-z), numbers(0-9), spaces( ), periods(.), underscores (_), and apostrophes (&). Please remove special characters and try again.'
+    : null;
+};
+
+export const validateName = (value: string) => {
+  return validateMinLength(1, 'Name')(value) || validateNameFormat(value);
 };
