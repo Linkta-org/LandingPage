@@ -3,7 +3,11 @@ import {
   validateMinLength,
   validateName,
 } from '../utils/formValidation';
-import type { FormValues, TextInputConfig, ValidationFunction } from '../types/signupForm';
+import type {
+  FormValues,
+  TextInputConfig,
+  ValidationFunction,
+} from '../types/signupForm';
 
 /**
  * Creates a text input configuration object for form fields.
@@ -19,15 +23,17 @@ const createConfigItem: (
   label: string,
   placeholder: string,
   validate: ValidationFunction,
-  required?: boolean
+  required: boolean,
+  maxLength: number
 ) => TextInputConfig = (
   field,
   label,
   placeholder,
   validate,
-  required = false
+  required,
+  maxLength
 ) => {
-  return { field, label, placeholder, validate, required };
+  return { field, label, placeholder, validate, required, maxLength };
 };
 
 /**
@@ -41,32 +47,40 @@ const textInputConfig: TextInputConfig[] = [
     'First Name (required)',
     'Enter your first name',
     validateName,
-    true
+    true,
+    50
   ),
   createConfigItem(
     'email',
     'Email (required)',
     'Enter your email',
     validateEmail,
-    true
+    true,
+    254
   ),
   createConfigItem(
     'interests',
     'Interests (optional)',
     'Enter your interests, separated by commas (e.g., Design, Programming)',
-    validateMinLength(3, 'Interests')
+    validateMinLength(3, 'Interests'),
+    false,
+    254
   ),
   createConfigItem(
     'source',
     'How did you hear about us? (optional)',
     'Enter your source',
-    validateMinLength(3, 'Source')
+    validateMinLength(3, 'Source'),
+    false,
+    50
   ),
   createConfigItem(
     'features',
     'What features are you most interested in? (optional)',
     'Describe features, separated by commas (e.g., Collaboration, Sharing)',
-    validateMinLength(5, 'Features')
+    validateMinLength(5, 'Features'),
+    false,
+    500
   ),
 ];
 

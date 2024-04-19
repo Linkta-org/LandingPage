@@ -16,5 +16,6 @@ export interface ConfigItem {
 export interface TextInputConfig extends ConfigItem {
   label: string;
   placeholder: string;
-  required?: boolean;
+  required: boolean;
+  maxLength: number;
 }
