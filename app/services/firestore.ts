@@ -22,7 +22,7 @@ export const checkDocumentExists = async (
  * Creates or updates a user document in Firestore with the provided data.
  *
  * @param {DocumentReference} docRef - Reference to where the user data should be stored.
- * @param {any} userData - Data to be written to the document.
+ * @param {UserData} userData - The user data to store, conforming to the UserData interface.
  * @returns {Promise<void>} Resolves on successful write, logs error on failure.
  */
 export const createUserDocument = async (
