@@ -7,15 +7,20 @@ export const removeEmptyItems = (array: string[]): string[] => {
 
 export const parseAndCleanInput = (input: string | null | undefined): string[] => {
     const parsedInput = input?.split(',') ?? [];
-    return removeEmptyItems(parsedInput.map(item => item.trim()));
+    return removeEmptyItems(parsedInput.map(item => removeSpecialCharacters(item)));
+};
+
+export const removeSpecialCharacters = (text: string): string => {
+  const allowedCharsRegex = /[^a-zA-Z0-9 ,.-]/g;
+  return text.replace(allowedCharsRegex, '').trim();
 };
 
 export const cleanUserData = (formData: FormValues) => {
   return {
-    name: formData.name.trim(),
-    email: formData.email,
+    name: removeSpecialCharacters(formData.name),
+    email: formData.email.trim().toLowerCase(),
     interests: parseAndCleanInput(formData.interests),
-    source: formData.source ? formData.source.trim() : 'not provided',
+    source: formData.source ? removeSpecialCharacters(formData.source) : 'not provided',
     features: parseAndCleanInput(formData.features),
     createdAt: serverTimestamp(),
   };
