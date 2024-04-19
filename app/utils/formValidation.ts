@@ -1,4 +1,4 @@
-import { ALLOWED_NAME_CHARS } from "./formInitialization";
+import { ALLOWED_NAME_CHARS } from './formInitialization';
 
 /**
  * Validates if the string meets the minimum length requirement.

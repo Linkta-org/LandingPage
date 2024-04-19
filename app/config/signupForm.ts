@@ -1,4 +1,8 @@
-import { validateEmail, validateMinLength, validateName } from '../utils/formValidation';
+import {
+  validateEmail,
+  validateMinLength,
+  validateName,
+} from '../utils/formValidation';
 import type { FormValues, ValidationFunction } from '../types/signupForm';
 
 interface TextInputConfig {
