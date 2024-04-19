@@ -42,8 +42,8 @@ const createConfigItem: (
 const textInputConfig: TextInputConfig[] = [
   createConfigItem(
     'name',
-    'Name (required)',
-    'Enter your name',
+    'First Name (required)',
+    'Enter your first name',
     validateMinLength(1, 'Name'),
     true
   ),
