@@ -1,9 +1,8 @@
 import { serverTimestamp } from 'firebase/firestore';
 import { FormValues } from '../types/signupForm';
-import {
-  ALLOWED_NAME_CHARS,
-  ALLOWED_COMMON_CHARS,
-} from './formInitialization';
+
+const ALLOWED_NAME_CHARS = '\\p{Letter}\\s\\-\\.\\\'';
+const ALLOWED_COMMON_CHARS = 'a-zA-Z0-9 ,.\\-&\\[\\]()';
 
 export const removeEmptyItems = (array: string[]): string[] => {
   return array.length ? array.filter((item) => item.length > 0) : [];
