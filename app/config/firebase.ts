@@ -9,6 +9,7 @@ import {
 } from 'firebase/auth';
 import type { FirebaseConfig } from '../types/firebase';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import { getAnalytics } from "firebase/analytics";  
 
 interface ReloadUser {
  screenName: string
@@ -39,6 +40,7 @@ if (
 }
 //initialize firebase app
 const firebaseApp = initializeApp(firebaseConfig);
+const analytics = getAnalytics(firebaseApp);
 
 export const auth: Auth = getAuth(firebaseApp); //initialize Firebase Authentication service
 auth.useDeviceLanguage(); //detecting/using user perferrd languague on their devices
