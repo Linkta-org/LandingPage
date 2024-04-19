@@ -1,5 +1,11 @@
 import { DocumentReference, getDoc, setDoc } from 'firebase/firestore';
-
+import { UserData } from '../types/firebase';
+/**
+ * Asynchronously checks the existence of a Firestore document.
+ *
+ * @param {DocumentReference} docRef - Reference to the Firestore document.
+ * @returns {Promise<boolean>} True if the document exists, false otherwise or if an error occurs.
+ */
 export const checkDocumentExists = async (
   docRef: DocumentReference
 ): Promise<boolean> => {
@@ -12,9 +18,16 @@ export const checkDocumentExists = async (
   }
 };
 
+/**
+ * Creates or updates a user document in Firestore with the provided data.
+ *
+ * @param {DocumentReference} docRef - Reference to where the user data should be stored.
+ * @param {any} userData - Data to be written to the document.
+ * @returns {Promise<void>} Resolves on successful write, logs error on failure.
+ */
 export const createUserDocument = async (
   docRef: DocumentReference,
-  userData: any
+  userData: UserData
 ): Promise<void> => {
   try {
     await setDoc(docRef, userData);

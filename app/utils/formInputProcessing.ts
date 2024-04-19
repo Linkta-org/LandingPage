@@ -1,5 +1,6 @@
 import { serverTimestamp } from 'firebase/firestore';
 import { FormValues } from '../types/signupForm';
+import { UserData } from '../types/firebase';
 
 const ALLOWED_COMMON_CHARS = '\\p{Letter}0-9 ,.\\-&\\[\\]()';
 
@@ -29,7 +30,7 @@ export const parseAndCleanInput = (
   );
 };
 
-export const cleanUserData = (formData: FormValues) => {
+export const cleanUserData = (formData: FormValues): UserData => {
   return {
     name: removeExtraWhiteSpaces(formData.name),
     email: formData.email.trim().toLowerCase(),
