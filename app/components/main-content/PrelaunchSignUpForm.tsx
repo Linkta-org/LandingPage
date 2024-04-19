@@ -25,10 +25,9 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
   const handleSubmit = async( values: FormValues ) => {
     setFlowState('processing');
     //TODO: add email validation before writing to db
-    // creates user document reference using email as document id
-    const userDocRef = doc(db, 'users', values.email);
-
     const userData = cleanUserData(values);
+
+    const userDocRef = doc(db, 'users', userData.email);
 
   try {
     const documentExists = await checkDocumentExists(userDocRef);
