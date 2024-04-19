@@ -1,9 +1,4 @@
-import type { FormValues, ValidationFunction } from '../types/signupForm';
-
-export interface ConfigItem {
-  field: keyof FormValues;
-  validate?: ValidationFunction;
-}
+import type { ConfigItem, FormValues, ValidationFunction } from '../types/signupForm';
 
 /**
  * Generates initial form values based on the provided config.

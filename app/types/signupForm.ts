@@ -7,3 +7,14 @@ export interface FormValues {
   source?: string;
   features?: string;
 }
+
+export interface ConfigItem {
+  field: keyof FormValues;
+  validate?: ValidationFunction;
+}
+
+export interface TextInputConfig extends ConfigItem {
+  label: string;
+  placeholder: string;
+  required?: boolean;
+}
