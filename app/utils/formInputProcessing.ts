@@ -1,7 +1,7 @@
 import { serverTimestamp } from 'firebase/firestore';
 import { FormValues } from '../types/signupForm';
 
-const ALLOWED_COMMON_CHARS = 'a-zA-Z0-9 ,.\\-&\\[\\]()';
+const ALLOWED_COMMON_CHARS = '\\p{Letter}0-9 ,.\\-&\\[\\]()';
 
 export const removeEmptyItems = (array: string[]): string[] => {
   return array.length ? array.filter((item) => item.length > 0) : [];
@@ -15,7 +15,7 @@ export const removeSpecialCharacters = (
   text: string,
   allowedChars: string
 ): string => {
-  const allowedCharsRegex = new RegExp(`[^${allowedChars}]`, 'g');
+  const allowedCharsRegex = new RegExp(`[^${allowedChars}]`, 'gu');
   return text.replace(allowedCharsRegex, '').trim();
 };
 
