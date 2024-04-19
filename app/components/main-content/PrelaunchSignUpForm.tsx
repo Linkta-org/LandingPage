@@ -24,6 +24,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
 
   const handleSubmit = async( values: FormValues ) => {
     setFlowState('processing');
+    //TODO: add email validation before writing to db
     // creates user document reference using email as document id
     const userDocRef = doc(db, 'users', values.email);
 
@@ -35,7 +36,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
       await createUserDocument(userDocRef, userData);
     }
   } catch (error) {
-    console.error('An error occurred during the user data process:');
+    console.error('An error occurred during the user data process');
   }
 
     setFlowState('confirmed')
