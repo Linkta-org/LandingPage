@@ -12,7 +12,7 @@ export const validateMinLength =
       return `${field} must have at least ${minLength} letter${pluralSuffix}. Please try again.`;
     }
     return null;
-};
+  };
 
 /**
  * Validates the format of an email address.
@@ -21,7 +21,7 @@ export const validateMinLength =
  */
 export const validateEmailFormat = (value: string) => {
   const emailRegex =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.|_\-)?[^<>()\[\]\\.,;:\s@"]*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   return !emailRegex.test(value)
     ? 'Invalid email format. Please check for missing "@" or "." symbols, or invalid characters and try again'
