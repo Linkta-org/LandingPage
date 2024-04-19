@@ -30,6 +30,16 @@ export const parseAndCleanInput = (
   );
 };
 
+/**
+ * Processes and cleans form data for database storage.
+ *
+ * This function trims, sanitizes, and formats user input based on predefined rules. It converts
+ * email to lowercase, removes extra whitespace from names, sanitizes and converts `interests`,
+ * `features`, and `source` into arrays and string, and sets a current timestamp.
+ *
+ * @param {FormValues} formData - The data submitted by the user.
+ * @returns {UserData} Cleaned and formatted user data ready for database insertion.
+ */
 export const cleanUserData = (formData: FormValues): UserData => {
   return {
     name: removeExtraWhiteSpaces(formData.name),
