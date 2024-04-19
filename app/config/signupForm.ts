@@ -64,7 +64,7 @@ const textInputConfig: TextInputConfig[] = [
     'Enter your interests, separated by commas (e.g., Design, Programming)',
     validateMinLength(3, 'Interests'),
     false,
-    254
+    150
   ),
   createConfigItem(
     'source',
@@ -80,7 +80,7 @@ const textInputConfig: TextInputConfig[] = [
     'Describe features, separated by commas (e.g., Collaboration, Sharing)',
     validateMinLength(5, 'Features'),
     false,
-    500
+    200
   ),
 ];
 
