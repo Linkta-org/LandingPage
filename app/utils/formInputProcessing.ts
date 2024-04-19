@@ -1,11 +1,14 @@
 import { serverTimestamp } from 'firebase/firestore';
 import { FormValues } from '../types/signupForm';
 
-const ALLOWED_NAME_CHARS = '\\p{Letter}\\s\\-\\.\\\'';
 const ALLOWED_COMMON_CHARS = 'a-zA-Z0-9 ,.\\-&\\[\\]()';
 
 export const removeEmptyItems = (array: string[]): string[] => {
   return array.length ? array.filter((item) => item.length > 0) : [];
+};
+
+export const removeExtraWhiteSpaces = (input: string) => {
+  return input.trim().replace(/\s+/g, ' ');
 };
 
 export const removeSpecialCharacters = (
@@ -28,7 +31,7 @@ export const parseAndCleanInput = (
 
 export const cleanUserData = (formData: FormValues) => {
   return {
-    name: removeSpecialCharacters(formData.name, ALLOWED_NAME_CHARS),
+    name: removeExtraWhiteSpaces(formData.name),
     email: formData.email.trim().toLowerCase(),
     interests: parseAndCleanInput(
       formData.interests,
