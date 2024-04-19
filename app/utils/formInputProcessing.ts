@@ -6,7 +6,7 @@ export const removeEmptyItems = (array: string[]): string[] => {
 };
 
 export const parseAndCleanInput = (input: string | null | undefined): string[] => {
-    const parsedInput = input ? input.split(',') : [];
+    const parsedInput = input?.split(',') ?? [];
     return removeEmptyItems(parsedInput.map(item => item.trim()));
 };
 
