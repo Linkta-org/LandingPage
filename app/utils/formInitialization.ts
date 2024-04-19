@@ -1,6 +1,6 @@
 import type { FormValues, ValidationFunction } from '../types/signupForm';
 
-interface ConfigItem {
+export interface ConfigItem {
   field: keyof FormValues;
   validate?: ValidationFunction;
 }
@@ -41,4 +41,4 @@ export const generateValidationRules = (
 
 export const ALLOWED_NAME_CHARS = 'a-zA-Z0-9 ._\'';
 
-export const ALLOWED_COMMON_CHARS = 'a-zA-Z0-9 ,.-&[]()';
+export const ALLOWED_COMMON_CHARS = 'a-zA-Z0-9 ,.\\-&\\[\\]()';
