@@ -1,13 +1,13 @@
-import {
-  validateEmail,
-  validateMinLength,
-  validateName,
-} from '../utils/formValidation';
-import type {
-  FormValues,
-  TextInputConfig,
-  ValidationFunction,
-} from '../types/signupForm';
+import { validateEmail, validateMinLength } from '../utils/formValidation';
+import type { FormValues, ValidationFunction } from '../types/signupForm';
+
+interface TextInputConfig {
+  field: keyof FormValues;
+  label: string;
+  placeholder: string;
+  validate?: ValidationFunction;
+  required?: boolean;
+}
 
 /**
  * Creates a text input configuration object for form fields.
@@ -23,17 +23,15 @@ const createConfigItem: (
   label: string,
   placeholder: string,
   validate: ValidationFunction,
-  required: boolean,
-  maxLength: number
+  required?: boolean
 ) => TextInputConfig = (
   field,
   label,
   placeholder,
   validate,
-  required,
-  maxLength
+  required = false
 ) => {
-  return { field, label, placeholder, validate, required, maxLength };
+  return { field, label, placeholder, validate, required };
 };
 
 /**
@@ -44,43 +42,35 @@ const createConfigItem: (
 const textInputConfig: TextInputConfig[] = [
   createConfigItem(
     'name',
-    'First Name (required)',
-    'Enter your first name',
-    validateName,
-    true,
-    50
+    'Name (required)',
+    'Enter your name',
+    validateMinLength(1, 'Name'),
+    true
   ),
   createConfigItem(
     'email',
     'Email (required)',
     'Enter your email',
     validateEmail,
-    true,
-    254
+    true
   ),
   createConfigItem(
     'interests',
     'Interests (optional)',
     'Enter your interests, separated by commas (e.g., Design, Programming)',
-    validateMinLength(3, 'Interests'),
-    false,
-    150
+    validateMinLength(3, 'Interests')
   ),
   createConfigItem(
     'source',
     'How did you hear about us? (optional)',
     'Enter your source',
-    validateMinLength(3, 'Source'),
-    false,
-    50
+    validateMinLength(3, 'Source')
   ),
   createConfigItem(
     'features',
     'What features are you most interested in? (optional)',
     'Describe features, separated by commas (e.g., Collaboration, Sharing)',
-    validateMinLength(5, 'Features'),
-    false,
-    200
+    validateMinLength(5, 'Features')
   ),
 ];
 

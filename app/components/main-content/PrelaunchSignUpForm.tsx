@@ -61,7 +61,6 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({ setFlowState 
                 label={input.label}
                 placeholder={input.placeholder}
                 required={input.required}
-                maxLength={input.maxLength}
                 {...form.getInputProps(input.field)}
               />
             ))}
