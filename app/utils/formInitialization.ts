@@ -38,3 +38,7 @@ export const generateValidationRules = (
 
   return validationRules;
 };
+
+export const ALLOWED_NAME_CHARS = 'a-zA-Z0-9 ._\'';
+
+export const ALLOWED_COMMON_CHARS = 'a-zA-Z0-9 ,.-&[]()';
