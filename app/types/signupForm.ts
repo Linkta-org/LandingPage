@@ -1,4 +1,4 @@
-export type ValidationFunction = (value: string) => string | null | undefined;
+export type ValidationFunction = (value: string | undefined) => string | null | undefined;
 
 export interface FormValues {
   name: string;
