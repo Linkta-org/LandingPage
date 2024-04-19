@@ -13,7 +13,7 @@ export const removeSpecialCharacters = (
   text: string,
   allowedChars: string
 ): string => {
-  const allowedCharsRegex = new RegExp(`^[${allowedChars}]+$`);
+  const allowedCharsRegex = new RegExp(`[^${allowedChars}]`, 'g');
   return text.replace(allowedCharsRegex, '').trim();
 };
 
