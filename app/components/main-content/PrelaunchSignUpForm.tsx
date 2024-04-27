@@ -9,7 +9,7 @@ import { zodResolver } from 'mantine-form-zod-resolver';
 import userDataValidationSchema, {
   type UserDataValidation,
 } from '@/app/schemas/userDataValidationSchema';
-import { storeUserDataIfNew } from '@/app/services/firestore';
+import { createUserDoc } from '@/app/services/firestore';
 import PrivacyAgreement from '../common/PrivacyAgreement';
 import userDataSanitizationSchema from '@/app/schemas/userDataSanitizationSchema';
 import UniversalButton from '../common/UniversalButton';
@@ -40,14 +40,17 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
     const sanitizedUserData = userDataSanitizationSchema.parse(rawUserData);
 
     try {
-      const userId = sanitizedUserData.email; // use user email as user Id to ensure user uniqueness
-      await storeUserDataIfNew(userId, sanitizedUserData);
+      await createUserDoc(sanitizedUserData);
+      setFlowState('confirmed');
+      form.reset();
     } catch (error) {
-      console.error('Error checking user data existence or storing user data.');
+      console.error('Email already in used, please try again with a different email.');
+      /*
+      TODO:
+      if catch error, meaning the email user input is already in DB. 
+      display 'Email already in used, please try again with a different email.' message, and have user fill out the form again with different email
+      */
     }
-
-    setFlowState('confirmed');
-    form.reset();
   }
 
   return (
