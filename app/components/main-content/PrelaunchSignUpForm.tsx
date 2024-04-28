@@ -41,16 +41,11 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
 
     try {
       await createUserDoc(sanitizedUserData);
-      setFlowState('confirmed');
-      form.reset();
     } catch (error) {
-      console.error('Email already in used, please try again with a different email.');
-      /*
-      TODO:
-      if catch error, meaning the email user input is already in DB. 
-      display 'Email already in used, please try again with a different email.' message, and have user fill out the form again with different email
-      */
+      console.error('Error checking user data existence or storing user data.');
     }
+    setFlowState('confirmed');
+    form.reset();
   }
 
   return (
