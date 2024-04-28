@@ -19,7 +19,6 @@ export const createUserDoc = async (
   try {
     await addDoc(usersRef, userData);
   } catch (error) {
-    console.log('Error in createUserDoc:', error);
-    throw error;
+    console.log('Failed to store user data');
   }
 };
