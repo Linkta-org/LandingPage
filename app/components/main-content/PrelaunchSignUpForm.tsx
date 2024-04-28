@@ -2,8 +2,7 @@
 
 import { TextInput, Box, Tooltip } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { Dispatch, SetStateAction } from 'react';
-import { FlowState } from '../../early-access/page';
+import { useState } from 'react';
 import textInputConfig from '../../config/signupForm';
 import { zodResolver } from 'mantine-form-zod-resolver';
 import userDataValidationSchema, {
@@ -14,8 +13,8 @@ import PrivacyAgreement from '../common/PrivacyAgreement';
 import userDataSanitizationSchema from '@/app/schemas/userDataSanitizationSchema';
 import UniversalButton from '../common/UniversalButton';
 
-interface PrelaunchSignUpFormProps {
-  setFlowState: Dispatch<SetStateAction<FlowState>>;
+export interface PrelaunchSignUpFormProps {
+  handleSuccessfulSubmit: () => void;
 }
 
 const defaultFormValues = {
@@ -26,8 +25,10 @@ const defaultFormValues = {
 };
 
 const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
-  setFlowState,
+  handleSuccessfulSubmit,
 }) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const form = useForm({
     validateInputOnBlur: ['name', 'email'],
     initialValues: defaultFormValues,
@@ -35,7 +36,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
   });
 
   async function handleSignupSubmit(rawUserData: UserDataValidation) {
-    setFlowState('processing');
+    setIsLoading(true);
 
     const sanitizedUserData = userDataSanitizationSchema.parse(rawUserData);
 
@@ -44,8 +45,10 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
     } catch (error) {
       console.error('Error checking user data existence or storing user data.');
     }
-    setFlowState('confirmed');
+
+    handleSuccessfulSubmit();
     form.reset();
+    setIsLoading(false);
   }
 
   return (
@@ -90,10 +93,12 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
             <UniversalButton
               id="join-waiting-list-button"
               type="submit"
-              label="Join Waiting List"
+              label={isLoading ? "Adding..." : "Join Waiting List"}
+              aria-label={isLoading ? "Adding you to our waiting list" : "Join Waiting List"}
               classNames={{
                 root: 'button-primary button-accent',
               }}
+              disabled={isLoading}
             />
 
             <footer className="pt-2">

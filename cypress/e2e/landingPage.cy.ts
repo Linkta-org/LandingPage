@@ -5,13 +5,23 @@ describe('Landing Page', () => {
   let landingPage: LandingPage;
   let landingPageValidator: LandingPageValidator;
 
-  before(() => {
+  beforeEach(() => {
     landingPage = new LandingPage();
     landingPageValidator = new LandingPageValidator(landingPage);
+    landingPage.open();
   });
 
   it('should contain a header with the title Linkta', () => {
-    landingPage.open();
     landingPageValidator.expectHeaderTitleToBe('Linkta');
+  });
+
+  it('should validate if name input contains special characters', () => {
+    landingPage.setName('Fake Name!@#');
+    landingPageValidator.expectErrorNameContainsSpecialCharacters();
+  });
+
+  it('should validate if email input is incorrect', () => {
+    landingPage.setEmail('fake@email');
+    landingPageValidator.expectErrorEmailAddressIncorrect();
   });
 });

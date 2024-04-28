@@ -1,8 +1,10 @@
 export default class LandingPage {
   private readonly landingPageUrl = 'http://localhost:3000';
-  private readonly earlyAccessUrl = `${this.landingPageUrl}/early-access`;
   private readonly headerTitleId = '#linkta-title';
-  private readonly earlyAccessPageButtonId = '#early-access-button';
+  private readonly nameInputId = '#name-input';
+  private readonly emailInputId = '#email-input';
+  private readonly nameInputErrorId = '#name-input-error';
+  private readonly emailInputErrorId = '#email-input-error';
 
   public open(): void {
     cy.visit(this.landingPageUrl);
@@ -12,22 +14,19 @@ export default class LandingPage {
     return cy.get(this.headerTitleId);
   }
 
-  private getEarlyAccessButton(): Cypress.Chainable {
-    return cy.get(this.earlyAccessPageButtonId);
+  public getNameErrorMessage(): Cypress.Chainable {
+    return cy.get(this.nameInputErrorId).should('be.visible');
   }
 
-  private retryIfEarlyAccessNotLoaded(attempts: number = 3): void {
-    cy.url().then((currentUrl) => {
-      if (currentUrl !== this.earlyAccessUrl && attempts > 0) {
-        cy.get(this.earlyAccessPageButtonId).click();
-        cy.wait(500);
-        this.retryIfEarlyAccessNotLoaded(attempts - 1);
-      }
-    });
+  public getEmailErrorMessage(): Cypress.Chainable {
+    return cy.get(this.emailInputErrorId).should('be.visible');
   }
 
-  public navigateToEarlyAccessPage(): void {
-    this.getEarlyAccessButton().click();
-    this.retryIfEarlyAccessNotLoaded();
+  public setName(name: string): Cypress.Chainable {
+    return cy.get(this.nameInputId).click().type(`${name}{enter}`);
+  }
+
+  public setEmail(email: string): Cypress.Chainable {
+    return cy.get(this.emailInputId).click().type(`${email}{enter}`);
   }
 }

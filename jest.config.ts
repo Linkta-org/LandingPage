@@ -19,6 +19,8 @@ const config: Config = {
   // Resolve module path aliases to ensure modules are correctly imported during tests
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
+    '^test-utils$': '<rootDir>/test-utils/index',
+    '^test-utils/(.*)$': '<rootDir>/test-utils/$1',
   },
 
   // Using TypeScript preset to handle TypeScript files
