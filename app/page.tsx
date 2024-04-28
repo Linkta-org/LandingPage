@@ -1,6 +1,7 @@
 'use client';
 import { Suspense, lazy, useEffect, useState } from 'react';
 import LinktaLogoWithText from './components/layout/LinktaLogoWithText';
+import KeyValueProposition from './components/main-content/KeyValueProposition';
 import SubmissionStatus from './components/main-content/SubmissionStatus';
 import PrelaunchSignUpForm from './components/main-content/PrelaunchSignUpForm';
 import Loading from './loading';
@@ -34,7 +35,7 @@ export default function Home() {
       </header>
       <main>
         <div>
-          <>ValueProposition Placeholder</>
+          <KeyValueProposition />
           {isSubmitted ? <SubmissionStatus /> : <PrelaunchSignUpForm handleSuccessfulSubmit={handleSuccessfulSubmit} />}
         </div>
           <div className="flex flex-col justify-center sm:flex-row-reverse">
