@@ -6,7 +6,7 @@ const createJestConfig = nextJest({
   dir: './',
 });
 
-const config: Config = {
+const baseConfig: Config = {
   // Enable collection of test coverage statistics
   collectCoverage: true,
 
@@ -39,4 +39,4 @@ const config: Config = {
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-export default createJestConfig(config);
+export default createJestConfig(baseConfig);
