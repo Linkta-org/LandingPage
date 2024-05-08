@@ -38,5 +38,12 @@ const baseConfig: Config = {
   },
 };
 
+const unitConfig: Config = {
+  ...baseConfig,
+  displayName: 'unit',
+  testMatch: ['<rootDir>/__tests__/unit/**/*.test.ts', '<rootDir>/__tests__/unit/**/*.test.tsx'],
+  testEnvironment: 'jsdom',
+};
+
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 export default createJestConfig(baseConfig);
