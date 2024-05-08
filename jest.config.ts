@@ -45,5 +45,12 @@ const unitConfig: Config = {
   testEnvironment: 'jsdom',
 };
 
+const integrationConfig: Config = {
+  ...baseConfig,
+  displayName: 'integration',
+  testMatch: ['<rootDir>/__tests__/integration/**/*.int-test.ts', '<rootDir>/__tests__/integration/**/*.int-test.tsx'],
+  testEnvironment: 'jsdom',
+};
+
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 export default createJestConfig(baseConfig);
