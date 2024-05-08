@@ -1,7 +1,10 @@
 export default function PrivacyPolicy() {
+  const lastUpdatedDate = 'April 29, 2024';
+  const contactEmail = 'info@linkta.io';
+  const socialMediaServices = ['Google', 'Github'];
+
   return (
     <div>
-      <p className="title">Privacy Policy for Linkta</p>
       <div className="translations-content-container">
         <div className="container">
           <div
@@ -10,7 +13,7 @@ export default function PrivacyPolicy() {
           >
             <header>
               <h1>Privacy Policy</h1>
-              <p>Last updated: April 29, 2024</p>
+              <p>Last updated: {lastUpdatedDate}</p>
             </header>
             <p>
               This Privacy Policy describes Our policies and procedures on the
@@ -67,7 +70,7 @@ export default function PrivacyPolicy() {
                 <dd>
                   (referred to as either &quot;the Company&quot;,
                   &quot;We&quot;, &quot;Us&quot;, or &quot;Our&quot; in this
-                  Agreement) refers to Linkta LLC, Seattle, WA.
+                  Agreement) refers to Linkta L.L.C., Bellevue, WA.
                 </dd>
                 <dt>
                   <strong>Cookies</strong>
@@ -203,11 +206,9 @@ export default function PrivacyPolicy() {
                 Services:
               </p>
               <ul>
-                <li>Google</li>
-                <li>Facebook</li>
-                <li>Instagram</li>
-                <li>Twitter</li>
-                <li>LinkedIn</li>
+                {socialMediaServices.map((service, index) => (
+                  <li key={`${service}-${index}`}>{service}</li>
+                ))}
               </ul>
               <p>
                 If You decide to register through or otherwise grant us access
@@ -600,14 +601,13 @@ export default function PrivacyPolicy() {
                 they are posted on this page.
               </p>
             </section>
-            <h2>Contact Us</h2>
-            <p>
-              If you have any questions about this Privacy Policy, You can
-              contact us:
-            </p>
-            <ul>
-              <li>By email: info@linkta.io</li>
-            </ul>
+            <footer>
+              <h2>Contact Us</h2>
+              <p>
+                If you have any questions about this Privacy Policy, You can
+                contact us by email: {contactEmail}
+              </p>
+            </footer>
           </div>
         </div>
       </div>
