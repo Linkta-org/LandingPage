@@ -5,7 +5,6 @@ export interface Tab {
 /**
  * Tab objects representing different routes.
  */
-//TODO: paths to be updated
 const cookiePreferencesPageRouteTab: Tab = {
   tabname: 'Cookie Preferences',
   path: '/cookie-preferences',
@@ -14,7 +13,7 @@ const securityPageRouteTab: Tab = { tabname: 'Security', path: '/security' };
 const legalPageRouteTab: Tab = { tabname: 'Legal', path: '/legal' };
 const privacyPageRouteTab: Tab = {
   tabname: 'Privacy',
-  path: 'https://ai.google.dev/terms',
+  path: '/privacy-policy',
 };
 /**
  * Maps footer labels to link
