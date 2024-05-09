@@ -14,7 +14,7 @@ const config: Config = {
   collectCoverage: true,
 
   // Specify the directory where Jest should output its coverage files
-  coverageDirectory: 'coverage',
+  coverageDirectory: 'coverage/unit',
 
   // Define which coverage provider to use for code instrumentation
   coverageProvider: 'v8',
