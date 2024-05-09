@@ -6,7 +6,10 @@ const createJestConfig = nextJest({
   dir: './',
 });
 
-const baseConfig: Config = {
+const config: Config = {
+  // Print label next to tests while running to clarify which config file is in use
+  displayName: 'unit',
+
   // Enable collection of test coverage statistics
   collectCoverage: true,
 
@@ -29,6 +32,8 @@ const baseConfig: Config = {
   // Load additional Jest setup configuration from a separate file
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 
+  testMatch: ['<rootDir>/__tests__/unit/**/*.test.ts', '<rootDir>/__tests__/unit/**/*.test.tsx'],
+
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
 
@@ -38,19 +43,5 @@ const baseConfig: Config = {
   },
 };
 
-const unitConfig: Config = {
-  ...baseConfig,
-  displayName: 'unit',
-  testMatch: ['<rootDir>/__tests__/unit/**/*.test.ts', '<rootDir>/__tests__/unit/**/*.test.tsx'],
-  testEnvironment: 'jsdom',
-};
-
-const integrationConfig: Config = {
-  ...baseConfig,
-  displayName: 'integration',
-  testMatch: ['<rootDir>/__tests__/integration/**/*.int-test.ts', '<rootDir>/__tests__/integration/**/*.int-test.tsx'],
-  testEnvironment: 'jsdom',
-};
-
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-export default createJestConfig(baseConfig);
+export default createJestConfig(config);
