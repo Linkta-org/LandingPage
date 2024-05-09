@@ -6,7 +6,7 @@ on:
       - dev
 
 jobs:
-  run-jest-tests:
+  run-jest-unit-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Jest tests
-        run: npm test
+      - name: Run Jest unit tests
+        run: npm test:unit
 
       - name: Fail on test errors
         if: ${{ failure() }}
