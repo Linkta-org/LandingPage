@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Run Jest integration tests
-        run: npm test:integration
+        run: npm run test:integration
 
       - name: Fail on test errors
         if: ${{ failure() }}
