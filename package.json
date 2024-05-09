@@ -9,8 +9,11 @@
     "lint": "next lint",
     "cypress-open": "npx cypress open",
     "cypress-run": "npx cypress run",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "jest --config jest.unit.config.ts",
+    "test:unit:watch": "jest --config jest.unit.config.ts --watch",
+    "test:integration": "jest --config jest.integration.config.ts",
+    "test:integration:watch": "jest --config jest.integration.config.ts --watch"
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.3",

@@ -7,11 +7,14 @@ const createJestConfig = nextJest({
 });
 
 const config: Config = {
+  // Print label next to tests while running to clarify which config file is in use
+  displayName: 'integration',
+
   // Enable collection of test coverage statistics
   collectCoverage: true,
 
   // Specify the directory where Jest should output its coverage files
-  coverageDirectory: 'coverage',
+  coverageDirectory: 'coverage/integration',
 
   // Define which coverage provider to use for code instrumentation
   coverageProvider: 'v8',
@@ -28,6 +31,8 @@ const config: Config = {
 
   // Load additional Jest setup configuration from a separate file
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+
+  testMatch: ['<rootDir>/__tests__/integration/**/*.int-test.ts', '<rootDir>/__tests__/integration/**/*.int-test.tsx'],
 
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
