@@ -11,8 +11,8 @@ describe('Landing Page', () => {
     landingPage.open();
   });
 
-  it('should contain a header with the title Linkta', () => {
-    landingPageValidator.expectHeaderTitleToBe('Linkta');
+  it('should contain a footer with the text ©2024 Linkta L.L.C. All rights reserved.', () => {
+    landingPageValidator.expectFooterTextToBe('©2024 Linkta L.L.C. All rights reserved.');
   });
 
   it('should validate if name input contains special characters', () => {
