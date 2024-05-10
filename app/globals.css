@@ -51,19 +51,35 @@
 }
 
 @layer components {
+  .section-base {
+    @apply mb-2;
+  }
+
+  .section-header-base {
+    @apply font-bold section-base;
+  }
+
   .section-body {
-    @apply mb-6
+    @apply mb-6;
   }
   .section-header {
-    @apply mb-2 text-2xl font-bold;
+    @apply text-2xl section-header-base;
+  }
+
+  .section-subheader {
+    @apply text-xl section-header-base;
+  }
+
+  .section--tertiary-header {
+    @apply text-lg section-header-base;
   }
 
   .section-paragraph {
-    @apply mt-2 text-base leading-relaxed ;
+    @apply text-base leading-relaxed section-base;
   }
 
   .list {
-    @apply mt-2 space-y-2;
+    @apply space-y-2 section-base;
   }
 
   .list-item {

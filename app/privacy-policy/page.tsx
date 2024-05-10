@@ -14,14 +14,14 @@ export default function PrivacyPolicy() {
         <article aria-labelledby="privacy-policy-header">
           <section className="section-body">
             <h1 id="privacy-policy-header" className="mb-4 text-3xl font-bold">Privacy Policy</h1>
-            <p>Last updated: {lastUpdatedDate}</p>
-          <p>
+            <p className="section-paragraph">Last updated: {lastUpdatedDate}</p>
+          <p className="section-paragraph">
             This Privacy Policy describes Our policies and procedures on the
             collection, use and disclosure of Your information when You use the
             Service and tells You about Your privacy rights and how the law
             protects You.
           </p>
-          <p>
+          <p className="section-paragraph">
             We use Your Personal data to provide and improve the Service. By
             using the Service, You agree to the collection and use of
             information in accordance with this Privacy Policy. This Privacy
@@ -38,14 +38,14 @@ export default function PrivacyPolicy() {
           </section>
           <section aria-labelledby="definitions-header" className="section-body">
             <h2 id="definitions-header" className="section-header">Interpretation and Definitions</h2>
-            <h3>Interpretation</h3>
+            <h3 className="section-subheader">Interpretation</h3>
             <p className="section-paragraph">
               The words of which the initial letter is capitalized have meanings
               defined under the following conditions. The following definitions
               shall have the same meaning regardless of whether they appear in
               singular or in plural.
             </p>
-            <h3>Definitions</h3>
+            <h3 className="section-subheader">Definitions</h3>
             <p className="section-paragraph">For the purposes of this Privacy Policy:</p>
             <dl className="list">
               <dt className="list-item">
@@ -155,8 +155,8 @@ export default function PrivacyPolicy() {
           </section>
           <section className="section-body">
             <h2 className="section-header">Collecting and Using Your Personal Data</h2>
-            <h3>Types of Data Collected</h3>
-            <h4>Personal Data</h4>
+            <h3 className="section-subheader">Types of Data Collected</h3>
+            <h4 className="section--tertiary-header">Personal Data</h4>
             <p className="section-paragraph">
               While using Our Service, We may ask You to provide Us with certain
               personally identifiable information that can be used to contact or
@@ -168,7 +168,7 @@ export default function PrivacyPolicy() {
               <li className="list-item">First name and last name</li>
               <li className="list-item">Usage Data</li>
             </ul>
-            <h4>Usage Data</h4>
+            <h4 className="section--tertiary-header">Usage Data</h4>
             <p className="section-paragraph">Usage Data is collected automatically when using the Service.</p>
             <p className="section-paragraph">
               Usage Data may include information such as Your Device&lsquo;s
@@ -190,7 +190,7 @@ export default function PrivacyPolicy() {
               You visit our Service or when You access the Service by or through
               a mobile device.
             </p>
-            <h4>Information from Third-Party Social Media Services</h4>
+            <h4 className="section--tertiary-header">Information from Third-Party Social Media Services</h4>
             <p className="section-paragraph">
               The Company allows You to create an account and log in to use the
               Service through the following Third-party Social Media Services:
@@ -215,7 +215,7 @@ export default function PrivacyPolicy() {
               giving the Company permission to use, share, and store it in a
               manner consistent with this Privacy Policy.
             </p>
-            <h4>Tracking Technologies and Cookies</h4>
+            <h4 className="section--tertiary-header">Tracking Technologies and Cookies</h4>
             <p className="section-paragraph">
               We use Cookies and similar tracking technologies to track the
               activity on Our Service and store certain information. Tracking
@@ -267,9 +267,9 @@ export default function PrivacyPolicy() {
                 <p className="inline">
                   <strong>Necessary / Essential Cookies</strong>
                 </p>
-                <p>Type: Session Cookies</p>
-                <p>Administered by: Us</p>
-                <p>
+                <p className="section-paragraph">Type: Session Cookies</p>
+                <p className="section-paragraph">Administered by: Us</p>
+                <p className="section-paragraph">
                   Purpose: These Cookies are essential to provide You with
                   services available through the Website and to enable You to
                   use some of its features. They help to authenticate users and
@@ -311,7 +311,7 @@ export default function PrivacyPolicy() {
               regarding cookies, please visit our Cookies Policy or the Cookies
               section of our Privacy Policy.
             </p>
-            <h3 >Use of Your Personal Data</h3>
+            <h3 className="section-subheader">Use of Your Personal Data</h3>
             <p className="section-paragraph">The Company may use Personal Data for the following purposes:</p>
             <ul className="list">
               <li className="list-item">
@@ -410,7 +410,7 @@ export default function PrivacyPolicy() {
                 personal information for any other purpose with Your consent.
               </li>
             </ul>
-            <h3>Retention of Your Personal Data</h3>
+            <h3 className="section-subheader">Retention of Your Personal Data</h3>
             <p className="section-paragraph">
               The Company will retain Your Personal Data only for as long as is
               necessary for the purposes set out in this Privacy Policy. We will
@@ -426,7 +426,7 @@ export default function PrivacyPolicy() {
               to improve the functionality of Our Service, or We are legally
               obligated to retain this data for longer time periods.
             </p>
-            <h3>Transfer of Your Personal Data</h3>
+            <h3 className="section-subheader">Transfer of Your Personal Data</h3>
             <p className="section-paragraph">
               Your information, including Personal Data, is processed at the
               Company&lsquo;s operating offices and in any other places where
@@ -448,7 +448,7 @@ export default function PrivacyPolicy() {
               controls in place including the security of Your data and other
               personal information.
             </p>
-            <h3>Delete Your Personal Data</h3>
+            <h3 className="section-subheader">Delete Your Personal Data</h3>
             <p className="section-paragraph">
               You have the right to delete or request that We assist in deleting
               the Personal Data that We have collected about You.
@@ -470,22 +470,22 @@ export default function PrivacyPolicy() {
               information when we have a legal obligation or lawful basis to do
               so.
             </p>
-            <h3>Disclosure of Your Personal Data</h3>
-            <h4>Business Transactions</h4>
+            <h3 className="section-subheader">Disclosure of Your Personal Data</h3>
+            <h4 className="section--tertiary-header">Business Transactions</h4>
             <p className="section-paragraph">
               If the Company is involved in a merger, acquisition or asset sale,
               Your Personal Data may be transferred. We will provide notice
               before Your Personal Data is transferred and becomes subject to a
               different Privacy Policy.
             </p>
-            <h4>Law enforcement</h4>
+            <h4 className="section--tertiary-header">Law enforcement</h4>
             <p className="section-paragraph">
               Under certain circumstances, the Company may be required to
               disclose Your Personal Data if required to do so by law or in
               response to valid requests by public authorities (e.g. a court or
               a government agency).
             </p>
-            <h4>Other legal requirements</h4>
+            <h4 className="section--tertiary-header">Other legal requirements</h4>
             <p className="section-paragraph">
               The Company may disclose Your Personal Data in the good faith
               belief that such action is necessary to:
@@ -503,7 +503,7 @@ export default function PrivacyPolicy() {
               </li>
               <li className="list-item">Protect against legal liability</li>
             </ul>
-            <h3>Security of Your Personal Data</h3>
+            <h3 className="section-subheader">Security of Your Personal Data</h3>
             <p className="section-paragraph">
               The security of Your Personal Data is important to Us, but
               remember that no method of transmission over the Internet, or
