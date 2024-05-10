@@ -16,16 +16,19 @@ describe('Landing Page', () => {
   });
 
   it('should validate if name input contains special characters', () => {
+    landingPage.checkPrivacyPolicy();
     landingPage.setName('Fake Name!@#');
     landingPageValidator.expectErrorNameContainsSpecialCharacters();
   });
 
   it('should validate if email input is incorrect', () => {
+    landingPage.checkPrivacyPolicy();
     landingPage.setEmail('fake@email');
     landingPageValidator.expectErrorEmailAddressIncorrect();
   });
 
   it('should validate if email input is too short', () => {
+    landingPage.checkPrivacyPolicy();
     landingPage.setEmail('abc');
     landingPageValidator.expectShortEmailErrorMessage();
   });
