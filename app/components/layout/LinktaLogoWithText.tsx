@@ -8,7 +8,7 @@ export default function LinktaLogoWithText() {
         height={50}
         alt="Linkta Logo"
       />
-      <figcaption id="linkta-title" className="font-semibold content-end hidden">Linkta</figcaption>
+      <figcaption id="linkta-title" className="font-semibold content-end text-light-primary">Linkta</figcaption>
     </figure>
   );
 }

@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
       <main className="container mx-auto py-8">
         <article aria-labelledby="privacy-policy-header">
           <section className="section-body">
-            <h1 id="privacy-policy-header" className="mb-4 text-3xl font-bold">Privacy Policy</h1>
+            <h1 id="privacy-policy-header" className="mb-4 text-4xl font-bold">Privacy Policy</h1>
             <p className="section-paragraph">Last updated: {lastUpdatedDate}</p>
           <p className="section-paragraph">
             This Privacy Policy describes Our policies and procedures on the
@@ -31,6 +31,7 @@ export default function PrivacyPolicy() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Opens Privacy Policy Generator in a new tab"
+              className="underline"
             >
               Privacy Policy Generator
             </a>
@@ -139,6 +140,7 @@ export default function PrivacyPolicy() {
                   rel="external nofollow noopener noreferrer"
                   target="_blank"
                   aria-label="Visit Linkta's official website"
+                  className="text-light-accent underline"
                 >
                   linkta.io
                 </a>
@@ -253,6 +255,7 @@ export default function PrivacyPolicy() {
               <a
                 href="https://www.privacypolicies.com/blog/privacy-policy-template/#Use_Of_Cookies_Log_Files_And_Tracking"
                 target="_blank"
+                className="underline"
               >
                 Privacy Policies website
               </a>{' '}
@@ -567,7 +570,7 @@ export default function PrivacyPolicy() {
             <p className="section-paragraph">
               If you have any questions about this Privacy Policy, You can
               contact us by email:{' '}
-              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+              <a href={`mailto:${contactEmail}`} className="text-light-accent underline">{contactEmail}</a>
             </p>
           </section>
         </article>
