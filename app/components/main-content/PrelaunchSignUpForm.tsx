@@ -66,10 +66,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
         <h4 className="mb-8 text-center text-base font-semibold tracking-tight text-light-border lg:text-lg">
           Get exclusive early access to Linkta
         </h4>
-        <section
-          aria-label="Sign Up with Email"
-          className="mx-auto flex-col justify-center"
-        >
+        <div className="mx-auto flex-col justify-center">
           {textInputConfig.map((input, index) =>
             input.tooltipLabel ? (
               <Tooltip
@@ -123,27 +120,29 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
             )
           )}
           <div className="mt-10 text-center">
-            <input
-              className="mr-2"
-              type="checkbox"
-              checked={checked}
-              onChange={(event) => setChecked(event.target.checked)}
-              id="agree-checkbox"
-              aria-describedby="privacy-policy-desc"
-            />
-            <label
-              htmlFor="agree-checkbox"
-              className="inline-flex cursor-pointer items-center"
-            >
-              I agree to the{' '}
-              <Link
-                href="/privacy-policy"
-                passHref
-                className="ml-1 text-blue-600 underline"
+            <div>
+              <input
+                className="mr-2"
+                type="checkbox"
+                checked={checked}
+                onChange={(event) => setChecked(event.target.checked)}
+                id="agree-checkbox"
+                aria-describedby="privacy-policy-desc"
+              />
+              <label
+                htmlFor="agree-checkbox"
+                className="inline-flex cursor-pointer items-center"
               >
-                Privacy Policy
-              </Link>
-            </label>
+                I agree to the{' '}
+                <Link
+                  href="/privacy-policy"
+                  passHref
+                  className="ml-1 underline"
+                >
+                  Privacy Policy
+                </Link>
+              </label>
+            </div>
             <UniversalButton
               id="join-waiting-list-button"
               type="submit"
@@ -157,7 +156,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
               disabled={!checked || isLoading}
             />
           </div>
-        </section>
+        </div>
       </form>
     </Box>
   );
