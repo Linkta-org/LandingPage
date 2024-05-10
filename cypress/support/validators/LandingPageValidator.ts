@@ -13,8 +13,8 @@ export default class LandingPageValidator {
     this.landingPage = landingPage;
   }
 
-  public expectHeaderTitleToBe(expectedTitle: string): void {
-    this.landingPage.getHeaderTitle().should('have.text', expectedTitle);
+  public expectFooterTextToBe(expectedTitle: string): void {
+    this.landingPage.getFooterText().should('have.text', expectedTitle);
   }
 
   public expectErrorNameContainsSpecialCharacters(): void {

@@ -1,6 +1,6 @@
 export default class LandingPage {
   private readonly landingPageUrl = 'http://localhost:3000';
-  private readonly headerTitleId = '#linkta-title';
+  private readonly footerText = '#footer-text';
   private readonly nameInputId = '#name-input';
   private readonly emailInputId = '#email-input';
   private readonly nameInputErrorId = '#name-input-error';
@@ -10,8 +10,8 @@ export default class LandingPage {
     cy.visit(this.landingPageUrl);
   }
 
-  public getHeaderTitle(): Cypress.Chainable {
-    return cy.get(this.headerTitleId);
+  public getFooterText(): Cypress.Chainable {
+    return cy.get(this.footerText);
   }
 
   public getNameErrorMessage(): Cypress.Chainable {
