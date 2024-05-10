@@ -12,10 +12,8 @@ export default function PrivacyPolicy() {
       </header>
       <main>
         <article aria-labelledby="privacy-policy-header">
-          <header>
             <h1 id="privacy-policy-header">Privacy Policy</h1>
             <p>Last updated: {lastUpdatedDate}</p>
-          </header>
           <p>
             This Privacy Policy describes Our policies and procedures on the
             collection, use and disclosure of Your information when You use the
@@ -562,14 +560,14 @@ export default function PrivacyPolicy() {
               are posted on this page.
             </p>
           </section>
-          <footer>
+          <section>
             <h2>Contact Us</h2>
             <p>
               If you have any questions about this Privacy Policy, You can
               contact us by email:{' '}
               <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
             </p>
-          </footer>
+          </section>
         </article>
       </main>
     </div>
