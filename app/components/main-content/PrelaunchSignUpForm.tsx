@@ -36,6 +36,10 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
     validate: zodResolver(userDataValidationSchema),
   });
 
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+  };
+
   async function handleSignupSubmit(rawUserData: UserDataValidation) {
     setIsLoading(true);
 
@@ -125,7 +129,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
                 className="mr-2"
                 type="checkbox"
                 checked={checked}
-                onChange={(event) => setChecked(event.target.checked)}
+                onChange={handleCheckboxChange}
                 id="agree-checkbox"
                 aria-describedby="privacy-policy-desc"
               />
