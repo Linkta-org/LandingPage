@@ -1,6 +1,6 @@
 'use client';
 
-import { TextInput, Box, Tooltip, Checkbox, Anchor } from '@mantine/core';
+import { TextInput, Box, Tooltip } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useState } from 'react';
 import textInputConfig from '../../config/signupForm';
@@ -11,6 +11,7 @@ import userDataValidationSchema, {
 import UniversalButton from '../common/UniversalButton';
 import classes from '../../PrelaunchSignUpForm.module.css';
 import { sendEmailLink } from '@/app/services/emailAuth';
+import Link from 'next/link';
 
 export interface PrelaunchSignUpFormProps {
   handleSuccessfulSubmit: () => void;
@@ -121,23 +122,28 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
               />
             )
           )}
-          <section className="mt-10 text-center">
-            <Checkbox
+          <div className="mt-10 text-center">
+            <input
+              className="mr-2"
+              type="checkbox"
               checked={checked}
-              onChange={(event) => setChecked(event.currentTarget.checked)}
-              label={
-                <>
-                  I agree to {' '}
-                  <Anchor
-                    href="/privacy-policy"
-                    target="_blank"
-                    inherit
-                  >
-                    the Privacy Policy
-                  </Anchor>
-                </>
-              }
+              onChange={(event) => setChecked(event.target.checked)}
+              id="agree-checkbox"
+              aria-describedby="privacy-policy-desc"
             />
+            <label
+              htmlFor="agree-checkbox"
+              className="inline-flex cursor-pointer items-center"
+            >
+              I agree to the{' '}
+              <Link
+                href="/privacy-policy"
+                passHref
+                className="ml-1 text-blue-600 underline"
+              >
+                Privacy Policy
+              </Link>
+            </label>
             <UniversalButton
               id="join-waiting-list-button"
               type="submit"
@@ -150,7 +156,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
               classNames={{ root: 'button-primary button-accent' }}
               disabled={!checked || isLoading}
             />
-          </section>
+          </div>
         </section>
       </form>
     </Box>
