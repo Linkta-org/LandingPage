@@ -18,13 +18,13 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
-      <body className='max-w-full h-full bg-[#F5F5F5]'>
+      <body className="h-full max-w-full bg-[#F5F5F5]">
         <MantineProvider>
-          <div className="relative container my-auto overflow-x-clip sm:overflow-x-visible xl:overflow-x-clip xl:overflow-y-visible xl:pl-12 xl:mx-auto">
+          <div className="container relative my-auto overflow-x-clip sm:overflow-x-visible xl:mx-auto xl:overflow-x-clip xl:overflow-y-visible xl:pl-12">
             {children}
           </div>
         </MantineProvider>
-        <footer className="absolute bottom-0 w-full text-center text-xs sm:text-sm md:text-base lg:text-lg p-4 sm:p-5 md:p-6 lg:p-8 text-light-text">
+        <footer className="absolute -mt-2 w-full border-t-2 xl:bottom-0">
           <Footer />
         </footer>
       </body>
