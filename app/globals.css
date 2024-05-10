@@ -56,33 +56,33 @@
   }
 
   .section-header-base {
-    @apply font-bold section-base;
+    @apply section-base font-bold;
   }
 
   .section-body {
     @apply mb-6;
   }
   .section-header {
-    @apply text-2xl section-header-base;
+    @apply section-header-base text-2xl;
   }
 
   .section-subheader {
-    @apply text-xl section-header-base;
+    @apply section-header-base text-xl;
   }
 
   .section--tertiary-header {
-    @apply text-lg section-header-base;
+    @apply section-header-base text-lg;
   }
 
   .section-paragraph {
-    @apply text-base leading-relaxed section-base;
+    @apply section-base text-base leading-relaxed;
   }
 
   .list {
-    @apply space-y-2 section-base;
+    @apply section-base space-y-2;
   }
 
   .list-item {
-    @apply flex items-center space-x-2 list-disc list-inside;
+    @apply flex list-inside list-disc items-center space-x-2;
   }
 }
