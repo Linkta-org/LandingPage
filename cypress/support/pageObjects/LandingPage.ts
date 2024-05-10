@@ -5,6 +5,7 @@ export default class LandingPage {
   private readonly emailInputId = '#email-input';
   private readonly nameInputErrorId = '#name-input-error';
   private readonly emailInputErrorId = '#email-input-error';
+  private readonly privacyCheckboxId = '#agree-checkbox';
 
   public open(): void {
     cy.visit(this.landingPageUrl);
@@ -28,5 +29,9 @@ export default class LandingPage {
 
   public setEmail(email: string): Cypress.Chainable {
     return cy.get(this.emailInputId).click().type(`${email}{enter}`);
+  }
+
+    public checkPrivacyPolicy(): Cypress.Chainable {
+    return cy.get(this.privacyCheckboxId).check();
   }
 }
