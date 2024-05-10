@@ -1,19 +1,28 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
-  
+
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  p, h1, h2, h3, h4, h5, h6 {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     overflow-wrap: break-word;
   }
-
 
   /* The following is for handling form elements with Mantine */
   .button-primary {
@@ -41,5 +50,23 @@
   /* End of Mantine form elements */
 }
 
-@tailwind components;
-@tailwind utilities;
+@layer components {
+  .section-body {
+    @apply mb-6
+  }
+  .section-header {
+    @apply mb-2 text-2xl font-bold;
+  }
+
+  .section-paragraph {
+    @apply mt-2 text-base leading-relaxed ;
+  }
+
+  .list {
+    @apply mt-2 space-y-2;
+  }
+
+  .list-item {
+    @apply flex items-center space-x-2 list-disc list-inside;
+  }
+}
