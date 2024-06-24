@@ -1,21 +1,13 @@
 {
   "hosting": {
-    "site": "linktaprelaunch",
-    "public": "public",
+    "source": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      {
-        "source": "**",
-        "function": "ssrlinktaprelaunch"
-      }
-    ]
-  },
-  "functions": {
-    "source": ".",
-    "runtime": "nodejs20"
+    "frameworksBackend": {
+      "region": "us-west1"
+    }
   }
 }
