@@ -10,12 +10,12 @@
     "rewrites": [
       {
         "source": "**",
-        "function": {
-          "functionId": "ssrlinktaprelaunch",
-          "region": "us-west1",
-          "pinTag": true
-        }
+        "function": "ssrlinktaprelaunch"
       }
     ]
+  },
+  "functions": {
+    "source": ".",
+    "runtime": "nodejs20"
   }
 }
