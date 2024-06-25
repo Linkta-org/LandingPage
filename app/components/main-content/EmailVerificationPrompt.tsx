@@ -12,13 +12,13 @@ export default function EmailVerificationPrompt() {
       className="pl-4 pr-6 pt-8 text-center text-light-text sm:pl-0"
     >
       <div className="flex items-center justify-center space-x-2">
-        <h4 className="text-xl font-bold text-light-border">
+        <h4 className="text-3xl font-bold text-light-border">
           Thanks for signing up!
         </h4>
         <ClientSideLottie
           autoplay={true}
           loop={true}
-          className="h-[100px] w-[100px]"
+          className="h-[100px]"
           src={heart}
         />
       </div>
