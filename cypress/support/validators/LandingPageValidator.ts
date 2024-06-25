@@ -1,7 +1,7 @@
 import LandingPage from '../pageObjects/LandingPage';
 
 enum ErrorMessages {
-  NameContainsSpecialCharacters = 'Looks like your name contains some special characters. Could you check it again?',
+  NameContainsSpecialCharacters = 'Please use only letters, spaces, hyphens, and periods in your name.',
   EmailAddressIncorrect = 'Oops, the email address seems incorrect. Could you check it again?',
   EmailTooShort = 'Hmm, that email seems a bit short. Could you check it again?',
 }

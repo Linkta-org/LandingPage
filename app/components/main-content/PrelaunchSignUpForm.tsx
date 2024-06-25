@@ -64,9 +64,6 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
     <>
       <Box className="my-10 sm:px-10 max-w-lg">
         <form onSubmit={form.onSubmit(handleSignupSubmit)}>
-          <h4 className="font-semibold text-base text-lg mb-8 tracking-tight text-light-border text-center">
-            Get exclusive early access to Linkta
-          </h4>
           <section
             aria-label="Sign Up with Email"
             className="mx-auto flex-col justify-center"
@@ -126,8 +123,8 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
               <UniversalButton
                 id="join-waiting-list-button"
                 type="submit"
-                label={isLoading ? "Adding..." : "Join Waiting List"}
-                aria-label={isLoading ? "Adding you to our waiting list" : "Join Waiting List"}
+                label={isLoading ? "Adding..." : "Get Early Access"}
+                aria-label={isLoading ? "Adding you to our waiting list" : "Get Early Access"}
                 classNames={{
                   root: 'button-primary button-accent',
                 }}

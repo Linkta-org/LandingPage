@@ -17,7 +17,7 @@ const userDataValidationSchema = z.object({
     .max(50, { message: 'Name can be up to 50 characters.' })
     .refine((val) => val.length > 50 || nameRegex.test(val), {
       message:
-        'Looks like your name contains some special characters. Could you check it again?',
+        'Please use only letters, spaces, hyphens, and periods in your name.',
     }),
   email: z
     .string()
