@@ -1,0 +1,43 @@
+.input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #938f99;
+  padding: 0.5rem;
+  color: #2b3c47;
+  text-align: start;
+}
+
+.inputError {
+  border: 1px solid #e4190c !important; /* Ensures this style has higher specificity */
+}
+
+.input:focus {
+  border: 1px solid #307654;
+  outline: none;
+}
+
+.label {
+  text-align: start;
+  font-weight: 500;
+  font-size: smaller;
+}
+
+.root {
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: #e4190c;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.mantine-tooltip {
+  background-color: #2c1d15;
+  color: #ffa51b;
+  border: 1px solid #ffa51b;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.25rem;
+  margin-top: 0.25rem;
+}

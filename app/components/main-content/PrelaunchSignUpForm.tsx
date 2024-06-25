@@ -10,7 +10,7 @@ import userDataValidationSchema, {
 } from '@/app/schemas/userDataValidationSchema';
 import UserConsent from './UserConsent';
 import UniversalButton from '../common/UniversalButton';
-import classes from '../../PrelaunchSignUpForm.module.css'
+import classes from './PrelaunchSignUpForm.module.css'
 import { sendEmailLink } from '@/app/services/emailAuth';
 
 export interface PrelaunchSignUpFormProps {
