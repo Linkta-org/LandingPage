@@ -15,7 +15,7 @@ const ThankYou = () => {
         Thank you!
       </h2>
       <p className="pt-4 text-lg">
-        We're excited to have you with us on this journey!
+        We&apos;re excited to have you with us on this journey!
       </p>
       <ClientSideLottie
         src={mailAnimationData}
