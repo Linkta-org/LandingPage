@@ -28,7 +28,7 @@
   }
 
   .label-primary {
-    @apply mt-2 w-full pl-2 text-left font-sans text-sm font-semibold;
+    @apply mt-2 w-full pl-2 text-left text-sm font-semibold;
   }
 
   div:has(> .input-primary) {

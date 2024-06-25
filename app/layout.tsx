@@ -19,15 +19,12 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body className='min-h-screen w-dvw bg-[#F5F5F5]'>
-        {/* <header className="hidden">
-          <LinktaLogoWithText />
-        </header> */}
         <MantineProvider>
           <main className="min-h-screen w-dvw">
             {children}
           </main>
         </MantineProvider>
-        <footer className="static">
+        <footer>
           <Footer />
         </footer>
       </body>
