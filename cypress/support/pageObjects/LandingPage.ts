@@ -10,10 +10,6 @@ export default class LandingPage {
     cy.visit(this.landingPageUrl);
   }
 
-  public getHeaderTitle(): Cypress.Chainable {
-    return cy.get(this.headerTitleId);
-  }
-
   public getNameErrorMessage(): Cypress.Chainable {
     return cy.get(this.nameInputErrorId).should('be.visible');
   }
@@ -26,7 +22,9 @@ export default class LandingPage {
     return cy.get(this.nameInputId).click().type(`${name}{enter}`);
   }
 
-  public setEmail(email: string): Cypress.Chainable {
-    return cy.get(this.emailInputId).click().type(`${email}{enter}`);
+  public setEmail(email: string): void {
+    cy.get(this.emailInputId).click();
+    cy.get(this.emailInputId).type(email);
+    cy.get(this.emailInputId).type('{enter}');
   }
 }

@@ -11,10 +11,6 @@ describe('Landing Page', () => {
     landingPage.open();
   });
 
-  xit('should contain a header with the title Linkta', () => {
-    landingPageValidator.expectHeaderTitleToBe('Linkta');
-  });
-
   it('should validate if name input contains special characters', () => {
     landingPage.setName('Fake Name!@#');
     landingPageValidator.expectErrorNameContainsSpecialCharacters();
