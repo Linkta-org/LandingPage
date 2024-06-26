@@ -5,6 +5,7 @@
   padding: 0.5rem;
   color: #2b3c47;
   text-align: start;
+  font-size: var(--font-size-xs)
 }
 
 .inputError {
@@ -19,7 +20,7 @@
 .label {
   text-align: start;
   font-weight: 500;
-  font-size: smaller;
+  font-size: var(--font-size-xs);
 }
 
 .root {
@@ -29,7 +30,7 @@
 
 .error {
   color: #E4190C;
-  font-size: 0.75rem;
+  font-size: var(--font-size-xs);
   position: absolute;
   bottom: -1.5rem;
   left: 0;

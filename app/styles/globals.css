@@ -2,7 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global styles */
+:root {
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+}
+
+/* Mobile devices*/
+@media (min-width: 360px) {
+  :root {
+    --font-size-xs: 0.8125rem;
+    --font-size-sm: 0.9375rem;
+    --font-size-base: 1.0625rem;
+    --font-size-lg: 1.1875rem;
+    --font-size-xl: 1.3125rem;
+    --font-size-2xl: 1.5625rem;
+    --font-size-3xl: 1.9375rem;
+    --font-size-4xl: 2.3125rem;
+  }
+}
+
+/* Large smartphones*/
+@media (min-width: 480px) {
+  :root {
+    --font-size-xs: 0.875rem;
+    --font-size-sm: 1rem;
+    --font-size-base: 1.125rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.375rem;
+    --font-size-2xl: 1.625rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.375rem;
+  }
+}
+
+/* Tablets and small desktops*/
+@media (min-width: 768px) {
+  :root {
+    --font-size-xs: 0.9375rem;
+    --font-size-sm: 1.0625rem;
+    --font-size-base: 1.1875rem;
+    --font-size-lg: 1.3125rem;
+    --font-size-xl: 1.4375rem;
+    --font-size-2xl: 1.6875rem;
+    --font-size-3xl: 2.0625rem;
+    --font-size-4xl: 2.4375rem;
+  }
+}
+
+/* Large tablets and desktops (1024px and up) */
+@media (min-width: 1024px) {
+  :root {
+    --font-size-xs: 1rem;
+    --font-size-sm: 1.125rem;
+    --font-size-base: 1.25rem;
+    --font-size-lg: 1.375rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 1.75rem;
+    --font-size-3xl: 2.125rem;
+    --font-size-4xl: 2.5rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1280px and up) */
+@media (min-width: 1280px) {
+  :root {
+    --font-size-xs: 1.0625rem;
+    --font-size-sm: 1.1875rem;
+    --font-size-base: 1.3125rem;
+    --font-size-lg: 1.4375rem;
+    --font-size-xl: 1.5625rem;
+    --font-size-2xl: 1.8125rem;
+    --font-size-3xl: 2.1875rem;
+    --font-size-4xl: 2.5625rem;
+  }
+}
+
 @layer base {
   *, *::before, *::after {
     box-sizing: border-box;
@@ -52,6 +132,7 @@
   }
 }
 
+/* Privacy Policy*/
 @layer components {
   .section-base {
     @apply mb-2;
@@ -66,19 +147,19 @@
   }
 
   .section-header {
-    @apply section-header-base text-2xl;
-  }
-
-  .section-subheader {
     @apply section-header-base text-xl;
   }
 
-  .section-tertiary-header {
+  .section-subheader {
     @apply section-header-base text-lg;
   }
 
+  .section-tertiary-header {
+    @apply section-header-base text-base;
+  }
+
   .section-paragraph {
-    @apply section-base text-base leading-relaxed;
+    @apply section-base text-sm leading-relaxed;
   }
 
   .list {

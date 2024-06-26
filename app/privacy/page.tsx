@@ -1,27 +1,15 @@
-import Link from 'next/link';
-import LinktaLogoWithText from '../components/layout/LinktaLogoWithText';
-
 export default function PrivacyPolicy() {
   const lastUpdatedDate = 'April 29, 2024';
   const contactEmail = 'info@linkta.io';
   const socialMediaServices = ['Google', 'Github'];
 
   return (
-    <div>
-      <header className="w-full border-b py-2 px-8">
-        <Link
-          href="/"
-          aria-label="Click to go back to homepage"
-        >
-          <LinktaLogoWithText />
-        </Link>
-      </header>
       <div className="container mx-auto py-8">
         <article aria-labelledby="privacy-policy-header">
           <section className="section-body">
             <h1
               id="privacy-policy-header"
-              className="mb-4 text-4xl font-bold"
+              className="mb-4 text-3xl font-bold"
             >
               Privacy Policy
             </h1>
@@ -646,6 +634,5 @@ export default function PrivacyPolicy() {
           </aside>
         </article>
       </div>
-    </div>
   );
 }
