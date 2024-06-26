@@ -34,7 +34,7 @@ export default function ThankYouPage() {
     <div className="flex min-h-screen items-center justify-center">
       <section
         id="thank-you"
-        className="mx-auto my-4 flex w-full max-w-[430px] max-w-lg flex-col items-center justify-center p-4"
+        className="mx-auto my-4 flex w-full flex-col items-center justify-center p-4"
       >
         <ThankYou />
       </section>

@@ -25,7 +25,7 @@ export default function EmailVerificationPrompt() {
       <p className="py-4 text-xl text-light-border">
         Please check your inbox on <strong>the same device</strong> to verify your email and complete the sign-up.
       </p>
-      <section className="px-8 pt-10 sm:px-2 sm:pt-4">
+      <section className="px-8 pt-10 sm:px-2 sm:pt-4 text-lg">
         <p className="py-3">
           Look for an email from us with a <strong>verification link</strong>.
         </p>

@@ -16,8 +16,8 @@ export default function Error({ error, reset }: ErrorProps) {
 
   return (
     <div className="text-center h-lvh text-light-text">
-      <h2 className="mt-36 text-6xl font-semibold">Oops!</h2>
-      <p className="mt-4 text-2xl">Something went wrong!</p>
+      <h2 className="mt-36 text-3xl font-semibold">Oops!</h2>
+      <p className="mt-4 text-xl">Something went wrong!</p>
       <div className="mt-12 mb-12" aria-label='Error page' aria-live='assertive'>
         <ClientSideLottie
           autoplay={true}
@@ -26,7 +26,7 @@ export default function Error({ error, reset }: ErrorProps) {
           src={ErrorAnimation}
         />
       </div>
-      <p className="mb-48 text-xl">
+      <p className="mb-48 text-lg">
         Please click <a href="#" className="underline decoration-light-link font-semibold" onClick={() => reset()}>here</a> to refresh the page or
         contact us at <a href="mailto:info@linkta.org" className="underline decoration-light-link font-semibold">info@linkta.org</a>
       </p>
