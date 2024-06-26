@@ -8,11 +8,11 @@
 }
 
 .inputError {
-  border: 1px solid #e4190c !important; /* Ensures this style has higher specificity */
+  border: 1px solid #E4190C !important; /* Ensures this style has higher specificity */
 }
 
 .input:focus {
-  border: 1px solid #307654;
+  border: 1px solid #3D976C;
   outline: none;
 }
 
@@ -24,20 +24,16 @@
 
 .root {
   margin-bottom: 1rem;
+  position: relative;
 }
 
 .error {
-  color: #e4190c;
+  color: #E4190C;
   font-size: 0.75rem;
-  margin-top: 0.25rem;
-}
-
-.mantine-tooltip {
-  background-color: #2c1d15;
-  color: #ffa51b;
-  border: 1px solid #ffa51b;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  font-size: 0.25rem;
-  margin-top: 0.25rem;
+  position: absolute;
+  bottom: -1.5rem;
+  left: 0;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: start;
 }

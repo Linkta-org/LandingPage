@@ -9,26 +9,26 @@ import Loading from '../loading';
 import ThankYou from '../components/main-content/ThankYou';
 
 export default function ThankYouPage() {
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // const router = useRouter();
-  // useEffect(() => {
-  //   if (!isSignInWithEmailLink(auth, window.location.href)) {
-  //     router.push('/');
-  //   } else {
-  //     let email = window.localStorage.getItem('emailForSignIn');
-  //     if (email) {
-  //       authenticateAndSaveUserDataFromEmailRedirect(email);
-  //       setIsLoading(false);
-  //     } else {
-  //       router.push('/');
-  //     }
-  //   }
-  // }, [router]);
+  const router = useRouter();
+  useEffect(() => {
+    if (!isSignInWithEmailLink(auth, window.location.href)) {
+      router.push('/');
+    } else {
+      let email = window.localStorage.getItem('emailForSignIn');
+      if (email) {
+        authenticateAndSaveUserDataFromEmailRedirect(email);
+        setIsLoading(false);
+      } else {
+        router.push('/');
+      }
+    }
+  }, [router]);
 
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center">

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function UserConsent() {
   return (
-    <div className="mt-2 text-xs">
+    <div className="mt-2 text-sm sm:text-sx md:text-sm lg:text-base">
       By continuing you are agreeing to our{' '}
       <Link
         href="/privacy-policy"

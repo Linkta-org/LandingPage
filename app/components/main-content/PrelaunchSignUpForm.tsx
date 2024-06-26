@@ -10,7 +10,7 @@ import userDataValidationSchema, {
 } from '@/app/schemas/userDataValidationSchema';
 import UserConsent from './UserConsent';
 import UniversalButton from '../common/UniversalButton';
-import classes from './PrelaunchSignUpForm.module.css'
+import classes from './PrelaunchSignUpForm.module.css';
 import { sendEmailLink } from '@/app/services/emailAuth';
 
 export interface PrelaunchSignUpFormProps {
@@ -23,7 +23,6 @@ const defaultFormValues = {
   interests: '',
   source: '',
 };
-
 
 const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
   handleSuccessfulSubmit,
@@ -61,84 +60,86 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
   }
 
   return (
-    <>
-      <Box className="my-10 sm:px-10 max-w-lg">
-        <form onSubmit={form.onSubmit(handleSignupSubmit)}>
-          <section
-            aria-label="Sign Up with Email"
-            className="mx-auto flex-col justify-center"
-          >
-            {textInputConfig.map((input, index) =>
-              input.tooltipLabel ? (
-                <Tooltip
-                  multiline
-                  key={`${input.field}-${index}`}
-                  label={input.tooltipLabel}
-                  position="bottom-start"
-                  styles={{
-                    tooltip: {
-                      backgroundColor: '#3D5B50',
-                      color: 'white',
-                      padding: '8px 12px',
-                      borderRadius: '4px',
-                      position: 'absolute',
-                      width: '300px',
-                      fontSize: '11px',
-                    },
-                  }}
-                >
-                  <TextInput
-                    classNames={{
-                      root: classes.root,
-                      input: classes.input,
-                      label: classes.label,
-                      error: classes.error,
-
-                    }}
-                    label={input.label}
-                    required={input.required}
-                    aria-required={input.required ? 'true' : 'false'}
-                    {...form.getInputProps(input.field)}
-                  />
-                </Tooltip>
-              ) : (
+    <Box className="my-10 max-w-lg sm:px-10 sm:max-w-sm md:max-w-md lg:max-w-lg">
+      <form onSubmit={form.onSubmit(handleSignupSubmit)}>
+        <section
+          aria-label="Sign Up with Email"
+          className="mx-auto flex flex-col justify-center space-y-4"
+        >
+          {textInputConfig.map((input, index) =>
+            input.tooltipLabel ? (
+              <Tooltip
+                multiline
+                key={`${input.field}-${index}`}
+                label={input.tooltipLabel}
+                position="bottom-start"
+                styles={{
+                  tooltip: {
+                    backgroundColor: '#D9D9D9',
+                    color: '2B3C47',
+                    padding: '8px 12px',
+                    borderRadius: '4px',
+                    position: 'absolute',
+                    width: '100',
+                    fontSize: '0.65rem',
+                  },
+                }}
+              >
                 <TextInput
-                  key={`${input.field}-${index}`}
-                  id={`${input.field}-input`}
                   classNames={{
                     root: classes.root,
-                    input: form.errors[input.field] ? `${classes.input} ${classes.inputError}` : classes.input,
+                    input: classes.input,
                     label: classes.label,
-                    error: classes.error
+                    error: classes.error,
                   }}
-                  error={form.errors[input.field]}
                   label={input.label}
                   required={input.required}
                   aria-required={input.required ? 'true' : 'false'}
                   {...form.getInputProps(input.field)}
                 />
-              )
-            )}
-            <section className='text-center mt-10'>
-              <UniversalButton
-                id="join-waiting-list-button"
-                type="submit"
-                label={isLoading ? "Adding..." : "Get Early Access"}
-                aria-label={isLoading ? "Adding you to our waiting list" : "Get Early Access"}
+              </Tooltip>
+            ) : (
+              <TextInput
+                key={`${input.field}-${index}`}
+                id={`${input.field}-input`}
                 classNames={{
-                  root: 'button-primary button-accent',
+                  root: classes.root,
+                  input: form.errors[input.field]
+                    ? `${classes.input} ${classes.inputError}`
+                    : classes.input,
+                  label: classes.label,
+                  error: classes.error,
                 }}
-                disabled={isLoading}
+                error={form.errors[input.field]}
+                label={input.label}
+                required={input.required}
+                aria-required={input.required ? 'true' : 'false'}
+                {...form.getInputProps(input.field)}
               />
-
-              <div className="pt-2 mb-2 text-light-text">
-                <UserConsent />
-              </div>
-            </section>
-          </section>
-        </form>
-      </Box>
-    </>
+            )
+          )}
+          <div className="mt-10 text-center">
+            <UniversalButton
+              id="join-waiting-list-button"
+              type="submit"
+              label={isLoading ? 'Adding...' : 'Get Early Access'}
+              aria-label={
+                isLoading
+                  ? 'Adding you to our waiting list'
+                  : 'Get Early Access'
+              }
+              classNames={{
+                root: 'button-primary button-accent',
+              }}
+              disabled={isLoading}
+            />
+            <div className="mb-2 pt-2 text-light-text">
+              <UserConsent />
+            </div>
+          </div>
+        </section>
+      </form>
+    </Box>
   );
 };
 
