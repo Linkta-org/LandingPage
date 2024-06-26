@@ -38,5 +38,5 @@ jobs:
       uses: cypress-io/github-action@v6
       with:
         wait-on: 'http://localhost:3000'
-        wait-on-timeout: 60
+        wait-on-timeout: 120
         config-file: cypress.config.ts
