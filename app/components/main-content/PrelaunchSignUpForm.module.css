@@ -30,11 +30,12 @@
 
 .error {
   color: #E4190C;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-xxs);
   position: absolute;
   bottom: -1.5rem;
   left: 0;
   height: 1.5rem;
-  line-height: 1.5rem;
+  line-height: 1rem;
   text-align: start;
+  margin-top: 0.25rem;
 }

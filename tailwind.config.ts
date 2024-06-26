@@ -28,6 +28,7 @@ const config: Config = {
     },
     extend: {
       fontSize: {
+        'xxs': 'var(--font-size-xxs)',
         'xs': 'var(--font-size-xs)',
         'sm': 'var(--font-size-sm)',
         'base': 'var(--font-size-base)',

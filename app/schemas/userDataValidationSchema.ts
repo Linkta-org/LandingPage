@@ -17,18 +17,18 @@ const userDataValidationSchema = z.object({
     .max(50, { message: 'Name can be up to 50 characters.' })
     .refine((val) => val.length > 50 || nameRegex.test(val), {
       message:
-        'Please use only letters, spaces, hyphens, and periods in your name.',
+        'Please use only letters, spaces, hyphens, and periods.',
     }),
   email: z
     .string()
     .trim()
     .min(6, {
-      message: 'Hmm, that email seems a bit short. Could you check it again?',
+      message: 'The email is too short. Please check again.',
     })
     .max(254, { message: 'Email can be up to 254 characters.' })
     .refine((val) => val.length > 254 || val.length < 6 || emailRegex.test(val), {
       message:
-        'Oops, the email address seems incorrect. Could you check it again?',
+        'Invalid email format. Please check again.',
     }),
   interests: z.string().optional(),
   source: z.string().optional(),

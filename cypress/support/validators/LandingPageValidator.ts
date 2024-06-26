@@ -1,9 +1,9 @@
 import LandingPage from '../pageObjects/LandingPage';
 
 enum ErrorMessages {
-  NameContainsSpecialCharacters = 'Please use only letters, spaces, hyphens, and periods in your name.',
-  EmailAddressIncorrect = 'Oops, the email address seems incorrect. Could you check it again?',
-  EmailTooShort = 'Hmm, that email seems a bit short. Could you check it again?',
+  NameContainsSpecialCharacters = 'Please use only letters, spaces, hyphens, and periods.',
+  EmailAddressIncorrect = 'Invalid email format. Please check again.',
+  EmailTooShort = 'The email is too short. Please check again.',
 }
 
 export default class LandingPageValidator {

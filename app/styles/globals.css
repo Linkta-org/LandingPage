@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+    --font-size-xxs: 0.5rem;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -16,6 +17,7 @@
 /* Mobile devices*/
 @media (min-width: 360px) {
   :root {
+    --font-size-xxs: 0.55rem;
     --font-size-xs: 0.8125rem;
     --font-size-sm: 0.9375rem;
     --font-size-base: 1.0625rem;
@@ -30,6 +32,8 @@
 /* Large smartphones*/
 @media (min-width: 480px) {
   :root {
+    --font-size-xxs: 0.625rem;
+    --font-size-xxs: 0.75rem;
     --font-size-xs: 0.875rem;
     --font-size-sm: 1rem;
     --font-size-base: 1.125rem;
@@ -44,6 +48,7 @@
 /* Tablets and small desktops*/
 @media (min-width: 768px) {
   :root {
+    --font-size-xxs: 0.6875rem;
     --font-size-xs: 0.9375rem;
     --font-size-sm: 1.0625rem;
     --font-size-base: 1.1875rem;
@@ -58,6 +63,7 @@
 /* Large tablets and desktops (1024px and up) */
 @media (min-width: 1024px) {
   :root {
+    --font-size-xxs: 0.75rem;
     --font-size-xs: 1rem;
     --font-size-sm: 1.125rem;
     --font-size-base: 1.25rem;
@@ -84,17 +90,25 @@
 }
 
 @layer base {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
   body {
-    @apply font-sans bg-gray-100 min-h-screen w-full w-dvw;
+    @apply min-h-screen w-dvw w-full bg-gray-100 font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  p, h1, h2, h3, h4, h5, h6 {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     overflow-wrap: break-word;
   }
 
@@ -104,21 +118,21 @@
   }
 
   .content {
-    @apply flex flex-col justify-center items-center;
+    @apply flex flex-col items-center justify-center;
   }
 
   /* The following is for handling form elements with Mantine */
-.button-primary {
-  @apply m-auto my-2 w-full rounded-full bg-[#ffa51b] p-2 shadow-md;
-}
+  .button-primary {
+    @apply m-auto my-2 w-full rounded-full bg-[#ffa51b] p-2 shadow-md;
+  }
 
-.button-accent {
-  @apply m-auto w-[243.94px] rounded-full border-[0.81px] border-[#FFA51B] bg-[#FFA51B] p-2 text-sm tracking-wide text-[#2B3C47] shadow-md hover:bg-[#FF9A00] hover:outline hover:outline-1 hover:outline-[#F88639] active:bg-[#F88639] active:outline-[#43A677] disabled:bg-[#A8AFB4];
-}
+  .button-accent {
+    @apply m-auto w-[243.94px] rounded-full border-[0.81px] border-[#FFA51B] bg-[#FFA51B] p-2 text-sm tracking-wide text-[#2B3C47] shadow-md hover:bg-[#FF9A00] hover:outline hover:outline-1 hover:outline-[#F88639] active:bg-[#F88639] active:outline-[#43A677] disabled:bg-[#A8AFB4];
+  }
 
-.button-light {
-  @apply m-auto w-[253.7px] rounded-full border-[0.81px] border-[#FFA51B] bg-[#F4FBF9] p-2 text-sm text-[#2B3C47] shadow-md hover:bg-[#D1E8E6] hover:outline hover:outline-1 hover:outline-[#FFA51B] active:bg-[#B5E6D4] active:outline-[#E8F4F3] disabled:bg-[#A8AFB4];
-}
+  .button-light {
+    @apply m-auto w-[253.7px] rounded-full border-[0.81px] border-[#FFA51B] bg-[#F4FBF9] p-2 text-sm text-[#2B3C47] shadow-md hover:bg-[#D1E8E6] hover:outline hover:outline-1 hover:outline-[#FFA51B] active:bg-[#B5E6D4] active:outline-[#E8F4F3] disabled:bg-[#A8AFB4];
+  }
   .label-primary {
     @apply mt-2 w-full pl-2 text-left font-sans text-sm font-semibold;
   }
