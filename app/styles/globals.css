@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply font-sans bg-gray-100 min-h-screen w-full;
+    @apply font-sans bg-gray-100 min-h-screen w-full w-dvw;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

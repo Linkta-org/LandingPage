@@ -18,11 +18,9 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
-      <body className='min-h-screen w-dvw bg-[#F5F5F5]'>
+      <body>
         <MantineProvider>
-          <main className="min-h-screen w-dvw">
-            {children}
-          </main>
+          <main>{children}</main>
         </MantineProvider>
         <footer>
           <Footer />
