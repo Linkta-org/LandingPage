@@ -34,9 +34,10 @@ jobs:
     - name: Start the application
       run: npm start &
 
+    - name: Wait for the application to be ready
+      run: npx wait-on http://localhost:3000 --timeout 120000
+
     - name: Run Cypress tests
       uses: cypress-io/github-action@v6
       with:
-        wait-on: 'http://localhost:3000'
-        wait-on-timeout: 120
         config-file: cypress.config.ts
