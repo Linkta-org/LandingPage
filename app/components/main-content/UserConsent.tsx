@@ -5,7 +5,7 @@ export default function UserConsent() {
     <div className="mt-2 text-sm sm:text-sx md:text-sm lg:text-base">
       By continuing you are agreeing to our{' '}
       <Link
-        href="/privacy-policy"
+        href="/privacy"
         className="text-light-secondary underline"
         aria-label="Read our privacy policy"
         target="_blank"
