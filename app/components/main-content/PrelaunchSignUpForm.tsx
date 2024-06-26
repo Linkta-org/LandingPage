@@ -64,7 +64,7 @@ const PrelaunchSignUpForm: React.FC<PrelaunchSignUpFormProps> = ({
       <form onSubmit={form.onSubmit(handleSignupSubmit)}>
         <section
           aria-label="Sign Up with Email"
-          className="mx-auto flex flex-col justify-center space-y-4"
+          className="mx-auto flex flex-col justify-center "
         >
           {textInputConfig.map((input, index) =>
             input.tooltipLabel ? (
