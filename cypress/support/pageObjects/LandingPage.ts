@@ -10,20 +10,20 @@ export default class LandingPage {
   }
 
   public getNameErrorMessage(): Cypress.Chainable {
-    return cy.get(this.nameInputErrorId).should('be.visible', { timeout: 5000 });
+    return cy.get(this.nameInputErrorId).should('be.visible');
   }
 
   public getEmailErrorMessage(): Cypress.Chainable {
-    return cy.get(this.emailInputErrorId).should('be.visible', { timeout: 5000 });
+    return cy.get(this.emailInputErrorId).should('be.visible');
   }
 
   public setName(name: string): Cypress.Chainable {
-    return cy.get(this.nameInputId).click().type(`${name}{enter}`).wait(500);
+    return cy.get(this.nameInputId).click().type(`${name}{enter}`);
   }
 
   public setEmail(email: string): void {
     cy.get(this.emailInputId).click();
     cy.get(this.emailInputId).type(email);
-    cy.get(this.emailInputId).type('{enter}').wait(500);
+    cy.get(this.emailInputId).type('{enter}');
   }
 }
