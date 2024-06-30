@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
           <section className="section-body">
             <h1
               id="privacy-policy-header"
-              className="mb-4 text-3xl font-bold"
+              className="mb-4 text-2xl font-bold"
             >
               Privacy Policy
             </h1>

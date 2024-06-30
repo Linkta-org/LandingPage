@@ -161,19 +161,19 @@
   }
 
   .section-header {
-    @apply section-header-base text-xl;
-  }
-
-  .section-subheader {
     @apply section-header-base text-lg;
   }
 
-  .section-tertiary-header {
+  .section-subheader {
     @apply section-header-base text-base;
   }
 
+  .section-tertiary-header {
+    @apply section-header-base text-sm;
+  }
+
   .section-paragraph {
-    @apply section-base text-sm leading-relaxed;
+    @apply section-base text-xs leading-relaxed;
   }
 
   .list {
