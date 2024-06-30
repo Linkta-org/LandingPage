@@ -6,6 +6,7 @@ describe('Landing Page', () => {
   let landingPageValidator: LandingPageValidator;
 
   beforeEach(() => {
+    cy.viewport(1280, 720);
     landingPage = new LandingPage();
     landingPageValidator = new LandingPageValidator(landingPage);
     landingPage.open();
