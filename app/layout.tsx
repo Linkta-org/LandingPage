@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import './styles/globals.css';
 import Footer from './components/layout/Footer';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 
@@ -18,16 +18,11 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
-      <body className='min-h-screen w-dvw bg-[#F5F5F5]'>
-        {/* <header className="hidden">
-          <LinktaLogoWithText />
-        </header> */}
+      <body>
         <MantineProvider>
-          <main className="min-h-screen w-dvw">
-            {children}
-          </main>
+          <main>{children}</main>
         </MantineProvider>
-        <footer className="static">
+        <footer>
           <Footer />
         </footer>
       </body>

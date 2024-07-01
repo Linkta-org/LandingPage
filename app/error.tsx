@@ -1,13 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Player } from '@lottiefiles/react-lottie-player';
 import ErrorAnimation from '../public/lottiefiles/error.json';
-
-/*
- * Under the hood, error.tsx creates a React Error Boundary that wraps its child segments. The Error component is used as the fallback component, which is rendered if an error is thrown.
- * For more context on Error Boundary: https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary
- */
+import ClientSideLottie from './components/common/ClientSideLottie';
 
 interface ErrorProps {
   error: Error & { digest?: string };
@@ -20,19 +15,18 @@ export default function Error({ error, reset }: ErrorProps) {
   }, [error]);
 
   return (
-    <div className="text-center h-lvh text-light-text">
-      <h2 className="mt-36 text-6xl font-semibold">Oops!</h2>
-      <p className="mt-4 text-2xl">Something went wrong!</p>
+    <div className="flex flex-col items-center justify-center min-h-screen text-center text-light-text px-8">
+      <h2 className="text-2xl font-semibold">Oops!</h2>
+      <p className="mt-4 text-lg">Something went wrong!</p>
       <div className="mt-12 mb-12" aria-label='Error page' aria-live='assertive'>
-        <Player
-        autoplay={true}
-        loop={true}
-        className="w-[150px] h-[150px] py-2"
-        src={ErrorAnimation}
-        >
-        </Player>
+        <ClientSideLottie
+          autoplay={true}
+          loop={true}
+          className="w-[150px] h-[150px] sm:w-[150px] sm:h-[150px] md:w-[200px] md:h-[200px] lg:w-[200px] lg:h-[200px] py-2"
+          src={ErrorAnimation}
+        />
       </div>
-      <p className="mb-48 text-xl">
+      <p className="mb-48 text-sm">
         Please click <a href="#" className="underline decoration-light-link font-semibold" onClick={() => reset()}>here</a> to refresh the page or
         contact us at <a href="mailto:info@linkta.org" className="underline decoration-light-link font-semibold">info@linkta.org</a>
       </p>

@@ -1,6 +1,5 @@
 export default class LandingPage {
   private readonly landingPageUrl = 'http://localhost:3000';
-  private readonly headerTitleId = '#linkta-title';
   private readonly nameInputId = '#name-input';
   private readonly emailInputId = '#email-input';
   private readonly nameInputErrorId = '#name-input-error';
@@ -8,10 +7,6 @@ export default class LandingPage {
 
   public open(): void {
     cy.visit(this.landingPageUrl);
-  }
-
-  public getHeaderTitle(): Cypress.Chainable {
-    return cy.get(this.headerTitleId);
   }
 
   public getNameErrorMessage(): Cypress.Chainable {
@@ -26,7 +21,9 @@ export default class LandingPage {
     return cy.get(this.nameInputId).click().type(`${name}{enter}`);
   }
 
-  public setEmail(email: string): Cypress.Chainable {
-    return cy.get(this.emailInputId).click().type(`${email}{enter}`);
+  public setEmail(email: string): void {
+    cy.get(this.emailInputId).click();
+    cy.get(this.emailInputId).type(email);
+    cy.get(this.emailInputId).type('{enter}');
   }
 }

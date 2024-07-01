@@ -1,9 +1,9 @@
 import LandingPage from '../pageObjects/LandingPage';
 
 enum ErrorMessages {
-  NameContainsSpecialCharacters = 'Looks like your name contains some special characters. Could you check it again?',
-  EmailAddressIncorrect = 'Oops, the email address seems incorrect. Could you check it again?',
-  EmailTooShort = 'Hmm, that email seems a bit short. Could you check it again?',
+  NameContainsSpecialCharacters = 'Please use only letters, spaces, hyphens, and periods.',
+  EmailAddressIncorrect = 'Invalid email format. Please check again.',
+  EmailTooShort = 'The email is too short. Please check again.',
 }
 
 export default class LandingPageValidator {
@@ -11,10 +11,6 @@ export default class LandingPageValidator {
 
   public constructor(landingPage: LandingPage) {
     this.landingPage = landingPage;
-  }
-
-  public expectHeaderTitleToBe(expectedTitle: string): void {
-    this.landingPage.getHeaderTitle().should('have.text', expectedTitle);
   }
 
   public expectErrorNameContainsSpecialCharacters(): void {

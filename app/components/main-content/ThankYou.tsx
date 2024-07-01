@@ -1,38 +1,46 @@
-'use client'
+'use client';
 
 import mailAnimationData from '../../../public/lottiefiles/mail-plane.json';
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import ClientSideLottie from '../common/ClientSideLottie';
 
 const ThankYou = () => {
   const linktaEmail = 'info@linkta.org';
-  
+
   return (
-    <article aria-live="polite" className="py-12 ml-4 mb-2 px-2">
-      <h2 className="flex pt-4 h-[60px] align-bottom">
-        <span className="font-serif text-3xl font-bold align-text-bottom">
-          Thank you!
-        </span>
+    <article
+      aria-live="polite"
+      className="flex flex-col items-center text-center px-4 py-8 text-light-text "
+    >
+      <h2 className="text-xl font-bold py-4">
+        Thank you!
       </h2>
-      <section>
-      <p className="pt-4 text-lg">We&apos;re thrilled to have you join us on this exciting journey!</p>
-      <p className="text-lg">Keep an eye on your inbox for an <strong>exclusive invitation</strong> coming your way soon!</p>
-      <p className="hidden text-xs pt-2">(Our demo is almost ready, and we can&apos;t wait for you to experience it firsthand.)</p>
-      </section>
-      <div>
-        <Player
-          autoplay
-          loop={true}
-          src={mailAnimationData}
-          style={{ width: "300px", height: "200px" }}
+      <p className="text-base">
+        We&apos;re excited to have you with us on this journey!
+      </p>
+      <ClientSideLottie
+        src={mailAnimationData}
+        autoplay={true}
+        loop={true}
+        className="h-[150px] w-[250px] sm:h-[200px] sm:w-[300px] md:h-[250px] md:w-[350px] lg:h-[300px] lg:w-[400px]"
+      />
+      <p className="text-sm">
+        Stay updated with our progress by following us on{' '}
+        <a
+          href="https://www.linkedin.com/company/100947448/"
+          className="font-semibold underline decoration-light-link"
         >
-          <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
-        </Player>        
-      </div>
-      <section>
-        <p>If you&apos;d like to keep updated with the project, <a href='https://www.linkedin.com/company/100947448/' className="underline decoration-light-link font-semibold">follow us on LinkedIn!</a> or email us at <a href={`mailto:${linktaEmail}`} className="underline decoration-light-link font-semibold">{linktaEmail}</a> </p>
-      </section>
+          LinkedIn
+        </a>{' '}
+        or reach out to us at{' '}
+        <a
+          href={`mailto:${linktaEmail}`}
+          className="font-semibold underline decoration-light-link"
+        >
+          {linktaEmail}
+        </a>
+      </p>
     </article>
-  )
+  );
 };
 
 export default ThankYou;

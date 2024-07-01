@@ -1,58 +1,46 @@
 'use client';
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { useState } from 'react';
 import HeadlineProposition from './components/main-content/HeadlineProposition';
 import EmailVerificationPrompt from './components/main-content/EmailVerificationPrompt';
 import PrelaunchSignUpForm from './components/main-content/PrelaunchSignUpForm';
-import Loading from './loading';
-import LinktaLogoWithText from './components/layout/LinktaLogoWithText';
 import Image from 'next/image';
-
-const LandingPageTreeVisualizationPanel = lazy(() => import('./components/main-content/LandingPageTreeVisualizationPanel'));
 
 export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const handleSuccessfulSubmit = (): void => setIsSubmitted(true);
 
-  /**
-   * useEffect to manage the display of submission status.
-   * Sets a long timer to reset the submission status after to ensure user have enough time to view the submission confirmation.
-   */
-  useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout>;;
-    if (isSubmitted) {
-      timeoutId = setTimeout(() => {
-        setIsSubmitted(false);
-      }, 12000000);
-    }
-
-    return () => clearTimeout(timeoutId);
-  }, [isSubmitted]);
-
   return (
-    <div className="contained-div flex flex-col">
-      {/* <span className="hidden"><LinktaLogoWithText /></span> */}
-      <HeadlineProposition/>
-      <div className='linkta-main-content flex flex-col align-items-center md:flex-row px-10 md:justify-around'>
-        {/* <Loading /> */}
-        <section className="linkta-form text-xl sm:text-lg min-w-9 md:basis-1/2">
-          <article className=''>
-            {isSubmitted ? <EmailVerificationPrompt /> : <PrelaunchSignUpForm handleSuccessfulSubmit={handleSuccessfulSubmit} />}
-          </article>
-        </section>
-        {/* <Suspense fallback={<Loading />}> */}
-          <div className="linkta-image flex self-center md:basis-1/2 mb-8 md:mb-0">
-            <Image
-              alt="A static image of 3D LinktaFlow, which you would rotate and click to explore different functionalities."
-              src="/Linkta-Landing.png"
-              width={800}
-              height={650}
-              // fill={true}
-              className="linkta-flow-image scale-70 md:scale-85 lg:scale-100"
-              style={{ objectFit: 'contain' }}
-            />
+    <div className="contained-div flex min-h-screen w-full items-center justify-center px-4 py-8 md:px-10">
+      <div className="w-full max-w-6xl">
+        {isSubmitted ? (
+          <EmailVerificationPrompt />
+        ) : (
+          <div className="flex flex-col items-center">
+            <div className="scale-60 md:scale-80 flex w-full justify-center md:mb-12 lg:scale-100">
+              <HeadlineProposition />
+            </div>
+            <div className="linkta-main-content align-items-center flex flex-col px-10 md:flex-row md:justify-around">
+              <section className="linkta-form self-center scale-45 md:scale-65  md:basis-1/2 lg:scale-75">
+                <PrelaunchSignUpForm
+                  handleSuccessfulSubmit={handleSuccessfulSubmit}
+                />
+              </section>
+              <div className="linkta-image-container mb-8 flex h-full self-center md:mb-0 md:basis-1/2">
+                <div className="relative h-0 w-full pb-[75%]">
+                  <Image
+                    alt="A static image of 3D LinktaFlow, which you would rotate and click to explore different functionalities."
+                    src="/Linkta-Landing.png"
+                    className="linkta-flow-image scale-70 md:scale-85 lg:scale-100"
+                    width={960}
+                    height={780}
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-        {/* </Suspense> */}
+        )}
       </div>
     </div>
   );

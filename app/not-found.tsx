@@ -1,26 +1,24 @@
 'use client';
 
 import NotFoundAnimation from '../public/lottiefiles/404.json';
-import { Player } from '@lottiefiles/react-lottie-player';
+import ClientSideLottie from './components/common/ClientSideLottie';
 
 export default function NotFound() {
-
   return (
-    <div className="text-center h-lvh text-light-text">
-      <h2 className="mt-36 text-6xl font-semibold">Oops!</h2>
-      <p className="mt-4 text-2xl">We couldn&apos;t find the page you&apos;re looking for</p>
+    <div className="flex flex-col items-center justify-center min-h-screen text-center text-light-text px-8">
+      <h2 className="text-2xl font-semibold">Oops!</h2>
+      <p className="mt-4 text-base">We couldn&apos;t find the page you&apos;re looking for</p>
       <div className="flex justify-center items-center mt-12 mb-12" aria-label='Page not found' aria-live='assertive'>
-        <Player
-        autoplay={true}
-        loop={false}
-        src={NotFoundAnimation}
-        className="w-[200px] h-[200px] "
-        >
-        </Player>
+        <ClientSideLottie
+          src={NotFoundAnimation}
+          autoplay={true}
+          loop={false}
+          className="w-[150px] h-[150px] sm:w-[150px] sm:h-[150px] md:w-[200px] md:h-[200px] lg:w-[200px] lg:h-[200px]"
+        />
       </div>
-      <p className="mb-48 text-xl">
+      <p className="mb-48 text-sm">
         Please click <a href="/" className="underline decoration-light-link font-semibold">here</a> to return home or contact us at <a href="mailto:info@linkta.org" className="underline decoration-light-link font-semibold">info@linkta.org</a>
       </p>
     </div>
-  )
-};
+  );
+}

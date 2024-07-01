@@ -6,13 +6,10 @@ describe('Landing Page', () => {
   let landingPageValidator: LandingPageValidator;
 
   beforeEach(() => {
+    cy.viewport(1280, 720);
     landingPage = new LandingPage();
     landingPageValidator = new LandingPageValidator(landingPage);
     landingPage.open();
-  });
-
-  xit('should contain a header with the title Linkta', () => {
-    landingPageValidator.expectHeaderTitleToBe('Linkta');
   });
 
   it('should validate if name input contains special characters', () => {

@@ -1,0 +1,41 @@
+.input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #938f99;
+  padding: 0.5rem;
+  color: #2b3c47;
+  text-align: start;
+  font-size: var(--font-size-xs)
+}
+
+.inputError {
+  border: 1px solid #E4190C !important; /* Ensures this style has higher specificity */
+}
+
+.input:focus {
+  border: 1px solid #3D976C;
+  outline: none;
+}
+
+.label {
+  text-align: start;
+  font-weight: 500;
+  font-size: var(--font-size-xs);
+}
+
+.root {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.error {
+  color: #E4190C;
+  font-size: var(--font-size-xxs);
+  position: absolute;
+  bottom: -1.5rem;
+  left: 0;
+  height: 1.5rem;
+  line-height: 1rem;
+  text-align: start;
+  margin-top: 0.25rem;
+}

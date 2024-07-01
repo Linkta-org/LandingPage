@@ -1,20 +1,16 @@
-import { footerLinks } from './layoutConfig';
 import Link from 'next/link';
 
 export default function Footer() {
   return (
-      <div className="linkta-footer fixed bottom-0 w-full border-t-2 pt-1 text-center text-light-text bg-[#F8F8F8]">
-        <span className="">
-        ©2024 Linkta L.L.C. All rights reserved.
-        </span>
+    <div className="linkta-footer fixed bottom-0 flex w-full items-center justify-between border-t-2 bg-[#F8F8F8] px-8 py-2 text-xs text-light-text">
+      <span>©2024 Linkta L.L.C. All rights reserved.</span>
 
-      <ul className="flex place-content-evenly hidden">
-        {footerLinks.map((tab) => (
-          <li key={`${tab.path}-${tab.tabname}`}>
-            <Link href={tab.path} className="px-1 flex-1">{tab.tabname}</Link>
-          </li>
-        ))}
-      </ul>
-      </div>
+      <Link
+        href="/"
+        className="underline"
+      >
+        Home
+      </Link>
+    </div>
   );
 }

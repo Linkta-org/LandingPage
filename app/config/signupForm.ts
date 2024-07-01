@@ -30,13 +30,13 @@ const textInputConfig: TextInputConfig[] = [
     'interests',
     'What would you love to learn? (optional)',
     false,
-    'List any topics you are interested in learning with Linkta, such as design or coding. Please separate your interests with commas.'
+    'List topics you want to learn, e.g., design or coding.'
   ),
   createTextInputConfig(
     'source',
     'How did you find us? (optional)',
     false,
-    'Let us know how you heard about us, for example, through LinkedIn or from a friend.'
+    'Share how you heard about us, e.g., LinkedIn or a friend.'
   ),
 ];
 

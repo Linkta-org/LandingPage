@@ -11,7 +11,7 @@ export default function LinktaLogoWithText() {
       />
       <figcaption
         id="linkta-title"
-        className="content-end font-semibold text-light-primary"
+        className="content-end font-semibold text-light-primary text-sx"
       >
         Linkta
       </figcaption>
